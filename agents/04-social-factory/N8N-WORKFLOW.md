@@ -1,32 +1,10 @@
-# Agent 4: Social Media Content Factory
-
-**Status**: 📋 Ready for Implementation
-**Target Launch**: Q2 2026
-**Version**: 1.0 (Complete Specification)
+# Agent 4: Social Media Content Factory - n8n Workflow
 
 ## Overview
 
-The Social Media Content Factory automates multi-platform social content generation, adapting messaging for each platform while maintaining brand consistency. Creates, optimizes, and schedules content across LinkedIn, Twitter, and other channels.
+Multi-platform social content generation that transforms source content (blog posts, announcements, case studies) into platform-optimized posts for LinkedIn, Twitter/X, Facebook, and Instagram.
 
-## Core Workflows
-
-### Workflow 4A: Content Repurposing & Generation
-
-**Purpose**: Transform source content (blog posts, announcements) into platform-specific social media posts
-
-**Trigger**:
-- Manual: Airtable form submission with source content
-- Automated: Webhook from CMS when new content published
-- Scheduled: Weekly content batch generation
-
-**Estimated Execution Time**: 3-5 minutes
-**Cost per Run**: $0.30-0.50 (generates 5-10 posts across platforms)
-
----
-
-## n8n Workflow Design: Multi-Platform Content Generation
-
-### Node Structure
+## Workflow Architecture
 
 ```
 Webhook Trigger / Airtable Record Created
@@ -50,7 +28,7 @@ Webhook Trigger / Airtable Record Created
     ↓
 [7] Gemini: Optimize & Add Hashtags
     ↓
-[8] Loop: Generate Multiple Variants (A/B testing)
+[8] Loop: Generate Multiple Variants
     ↓
 [9] Save All Posts to Airtable
     ↓
@@ -59,11 +37,12 @@ Webhook Trigger / Airtable Record Created
 [11] Slack Notification with Preview
 ```
 
-### Detailed Node Specifications
+## Detailed Node Specifications
 
-#### Node 1: Set Variables & Validate Input
-- **Node Type**: Function (JavaScript)
-- **Purpose**: Extract and validate input parameters
+### Node 1: Set Variables & Validate Input
+
+**Node Type**: Function (JavaScript)
+**Purpose**: Extract and validate input parameters
 
 ```javascript
 const input = $input.all()[0].json;
@@ -90,21 +69,24 @@ return [{
 }];
 ```
 
-#### Node 2: Update Airtable Status
-- **Node Type**: Airtable
-- **Operation**: Update
-- **Table**: Content Generation Requests
-- **Record ID**: `{{ $node["Set Variables"].json.request_id }}`
-- **Fields**:
-  - Status: "Processing"
-  - Started At: `{{ $now }}`
+### Node 2: Update Airtable Status
 
-#### Node 3: Fetch Brand Voice Guidelines
-- **Node Type**: Airtable
-- **Operation**: Search records
-- **Table**: Brand Voice Guidelines
-- **Formula**: `{Active} = TRUE()`
-- **Max Records**: 1
+**Node Type**: Airtable
+**Operation**: Update
+**Table**: Content Generation Requests
+**Record ID**: `{{ $node["Set Variables"].json.request_id }}`
+
+**Fields**:
+- Status: "Processing"
+- Started At: `{{ $now }}`
+
+### Node 3: Fetch Brand Voice Guidelines
+
+**Node Type**: Airtable
+**Operation**: Search records
+**Table**: Brand Voice Guidelines
+**Formula**: `{Active} = TRUE()`
+**Max Records**: 1
 
 **Purpose**: Get current brand voice, tone, messaging guidelines
 
@@ -116,12 +98,13 @@ return [{
 - Prohibited Terms
 - Emoji Policy
 
-#### Node 4: Perplexity - Research Context & Trends
-- **Node Type**: HTTP Request (Perplexity API)
-- **Model**: sonar-pro
-- **Conditional**: Only if source needs context (e.g., announcement needs industry context)
-- **Prompt**:
+### Node 4: Perplexity - Research Context & Trends
 
+**Node Type**: HTTP Request (Perplexity API)
+**Model**: sonar-pro
+**Conditional**: Only if source needs context (e.g., announcement needs industry context)
+
+**Prompt**:
 ```
 Research context for this social media content:
 
@@ -153,13 +136,37 @@ Provide:
 Keep it concise and actionable for social media content creation.
 ```
 
-#### Node 5: Claude - Analyze Source Content
-- **Node Type**: Anthropic (Claude)
-- **Model**: claude-3-5-sonnet-20241022
-- **Temperature**: 0.3
-- **Max Tokens**: 1000
-- **Prompt**:
+**API Configuration**:
+```json
+{
+  "method": "POST",
+  "url": "https://api.perplexity.ai/chat/completions",
+  "headers": {
+    "Authorization": "Bearer {{ $credentials.perplexity_api_key }}",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "sonar-pro",
+    "messages": [{
+      "role": "user",
+      "content": "[prompt above]"
+    }],
+    "max_tokens": 800,
+    "temperature": 0.2
+  }
+}
+```
 
+**Cost**: ~$0.05
+
+### Node 5: Claude - Analyze Source Content
+
+**Node Type**: Anthropic (Claude)
+**Model**: claude-3-5-sonnet-20241022
+**Temperature**: 0.3
+**Max Tokens**: 1000
+
+**Prompt**:
 ```
 You are a social media content strategist. Analyze this content for social media adaptation:
 
@@ -207,18 +214,24 @@ Platform-specific considerations:
 Keep analysis strategic and actionable.
 ```
 
-#### Node 6: Branch - Generate Platform-Specific Content
-- **Node Type**: Switch (n8n)
-- **Mode**: Execute all branches
-- **Purpose**: Generate content for each target platform in parallel
+**Cost**: ~$0.08
 
-##### Node 6a: LinkedIn Post (Claude)
-- **Node Type**: Anthropic (Claude)
-- **Model**: claude-3-5-sonnet-20241022
-- **Temperature**: 0.7 (more creative)
-- **Max Tokens**: 800
-- **Prompt**:
+### Node 6: Branch - Generate Platform-Specific Content
 
+**Node Type**: Switch (n8n)
+**Mode**: Execute all branches
+**Purpose**: Generate content for each target platform in parallel
+
+---
+
+#### Node 6a: LinkedIn Post (Claude)
+
+**Node Type**: Anthropic (Claude)
+**Model**: claude-3-5-sonnet-20241022
+**Temperature**: 0.7 (more creative)
+**Max Tokens**: 800
+
+**Prompt**:
 ```
 Create a LinkedIn post based on this content analysis:
 
@@ -261,13 +274,18 @@ FORMAT:
 Generate the post now:
 ```
 
-##### Node 6b: Twitter Thread (Claude)
-- **Node Type**: Anthropic (Claude)
-- **Model**: claude-3-5-sonnet-20241022
-- **Temperature**: 0.7
-- **Max Tokens**: 600
-- **Prompt**:
+**Cost**: ~$0.04 per post
 
+---
+
+#### Node 6b: Twitter Thread (Claude)
+
+**Node Type**: Anthropic (Claude)
+**Model**: claude-3-5-sonnet-20241022
+**Temperature**: 0.7
+**Max Tokens**: 600
+
+**Prompt**:
 ```
 Create a Twitter/X thread (5-8 tweets) based on this content:
 
@@ -319,13 +337,18 @@ FORMAT (return as JSON array):
 Generate the thread now as JSON array:
 ```
 
-##### Node 6c: Facebook Post (Claude)
-- **Node Type**: Anthropic (Claude)
-- **Model**: claude-3-5-sonnet-20241022
-- **Temperature**: 0.7
-- **Max Tokens**: 600
-- **Prompt**:
+**Cost**: ~$0.03 per thread
 
+---
+
+#### Node 6c: Facebook Post (Claude)
+
+**Node Type**: Anthropic (Claude)
+**Model**: claude-3-5-sonnet-20241022
+**Temperature**: 0.7
+**Max Tokens**: 600
+
+**Prompt**:
 ```
 Create a Facebook post based on this content:
 
@@ -366,13 +389,18 @@ FORMAT:
 Generate the post now:
 ```
 
-##### Node 6d: Instagram Caption (Claude)
-- **Node Type**: Anthropic (Claude)
-- **Model**: claude-3-5-sonnet-20241022
-- **Temperature**: 0.7
-- **Max Tokens**: 500
-- **Prompt**:
+**Cost**: ~$0.03 per post
 
+---
+
+#### Node 6d: Instagram Caption (Claude)
+
+**Node Type**: Anthropic (Claude)
+**Model**: claude-3-5-sonnet-20241022
+**Temperature**: 0.7
+**Max Tokens**: 500
+
+**Prompt**:
 ```
 Create an Instagram caption based on this content:
 
@@ -413,12 +441,17 @@ FORMAT:
 Generate the caption now:
 ```
 
-#### Node 7: Gemini - Optimize & Add Hashtags
-- **Node Type**: Google Gemini
-- **Model**: gemini-2.0-flash-exp
-- **Temperature**: 0.2
-- **Purpose**: Optimize posts and generate strategic hashtags
-- **Loop**: Process each platform's content
+**Cost**: ~$0.03 per caption
+
+---
+
+### Node 7: Gemini - Optimize & Add Hashtags
+
+**Node Type**: Google Gemini
+**Model**: gemini-2.0-flash-exp
+**Temperature**: 0.2
+**Purpose**: Optimize posts and generate strategic hashtags
+**Loop**: Process each platform's content
 
 **Prompt**:
 ```
@@ -463,23 +496,72 @@ Return as JSON:
 }
 ```
 
-#### Node 8: Loop - Generate Multiple Variants
-- **Node Type**: Loop (n8n)
-- **Purpose**: Generate A/B test variants for each platform
-- **Iterations**: `{{ $node['Set Variables'].json.variant_count }}`
+**API Configuration**:
+```json
+{
+  "method": "POST",
+  "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent",
+  "headers": {
+    "Content-Type": "application/json",
+    "x-goog-api-key": "{{ $credentials.google_gemini_api_key }}"
+  },
+  "body": {
+    "contents": [{
+      "parts": [{"text": "[prompt above]"}]
+    }],
+    "generationConfig": {
+      "temperature": 0.2,
+      "maxOutputTokens": 500,
+      "responseMimeType": "application/json"
+    }
+  }
+}
+```
 
-**For each platform, generate variants with different angles:**
+**Cost**: ~$0.005 per optimization
+
+### Node 8: Loop - Generate Multiple Variants
+
+**Node Type**: Loop (n8n)
+**Purpose**: Generate A/B test variants for each platform
+**Iterations**: `{{ $node['Set Variables'].json.variant_count }}`
+
+**For each platform, generate variants with different angles**:
 - Variant A: Angle from analysis #1
 - Variant B: Angle from analysis #2
 - Variant C: Angle from analysis #3
 
 **Process**: Re-run Claude generation nodes with different angle instructions
 
-#### Node 9: Save All Posts to Airtable
+**JavaScript Code to Manage Variants**:
+```javascript
+const variantCount = $node['Set Variables'].json.variant_count;
+const platforms = $node['Set Variables'].json.target_platforms;
+const angles = $node['Claude - Analyze Content'].json.content[0].text.match(/\d+\.\s+(.+)/g);
+
+const variants = [];
+
+for (let platform of platforms) {
+  for (let i = 0; i < variantCount; i++) {
+    variants.push({
+      platform: platform,
+      variant_number: i + 1,
+      angle: angles[i] || angles[0], // Use different angles or default
+      regenerate: true
+    });
+  }
+}
+
+return variants.map(v => ({ json: v }));
+```
+
+### Node 9: Save All Posts to Airtable
 
 **9a. Save Main Request Record**
-- **Table**: Content Generation Requests
-- **Operation**: Update
+
+**Table**: Content Generation Requests
+**Operation**: Update
+
 ```javascript
 {
   "Request ID": "{{ $node['Set Variables'].json.request_id }}",
@@ -496,8 +578,10 @@ Return as JSON:
 ```
 
 **9b. Save Individual Posts**
-- **Table**: Social Media Posts
-- **Operation**: Create (bulk)
+
+**Table**: Social Media Posts
+**Operation**: Create (bulk)
+
 ```javascript
 // Map all generated posts
 const posts = [];
@@ -531,22 +615,58 @@ $node['Twitter Threads'].json.forEach((thread, idx) => {
   });
 });
 
-// Facebook & Instagram posts (similar pattern)
+// Facebook posts
+$node['Facebook Posts'].json.forEach((post, idx) => {
+  posts.push({
+    "Request": "{{ $node['Set Variables'].json.request_id }}",
+    "Platform": "Facebook",
+    "Variant": idx + 1,
+    "Content": post.optimized_content,
+    "Hashtags": post.hashtags.join(', '),
+    "Character Count": post.character_count,
+    "Engagement Score": post.engagement_score,
+    "Status": "Draft"
+  });
+});
 
-return posts;
+// Instagram captions
+$node['Instagram Captions'].json.forEach((post, idx) => {
+  posts.push({
+    "Request": "{{ $node['Set Variables'].json.request_id }}",
+    "Platform": "Instagram",
+    "Variant": idx + 1,
+    "Content": post.optimized_content,
+    "Hashtags": post.hashtags.join(', '),
+    "Character Count": post.character_count,
+    "Engagement Score": post.engagement_score,
+    "Status": "Draft"
+  });
+});
+
+return posts.map(p => ({ json: p }));
 ```
 
-#### Node 10: Update Status
-- **Table**: Content Generation Requests
-- **Operation**: Update
-- **Status**: "Complete"
+### Node 10: Update Status
 
-#### Node 11: Slack Notification with Preview
-- **Node Type**: HTTP Request
-- **Method**: POST
-- **URL**: Slack webhook URL
-- **Body**:
+**Table**: Content Generation Requests
+**Operation**: Update
+**Status**: "Complete"
 
+```javascript
+{
+  "Status": "Complete",
+  "Completed At": "{{ $now }}",
+  "Processing Time": "{{ ($now - $node['Update Status - Processing'].json.Started_At) / 1000 }} seconds"
+}
+```
+
+### Node 11: Slack Notification with Preview
+
+**Node Type**: HTTP Request
+**Method**: POST
+**URL**: Slack webhook URL
+
+**Body**:
 ```json
 {
   "text": "✅ Social Content Generated",
@@ -563,8 +683,8 @@ return posts;
       "fields": [
         {"type": "mrkdwn", "text": "*Source:*\n{{ $node['Set Variables'].json.source_type }}"},
         {"type": "mrkdwn", "text": "*Platforms:*\n{{ $node['Set Variables'].json.target_platforms.join(', ') }}"},
-        {"type": "mrkdwn", "text": "*Posts Generated:*\n{{ count }} variants"},
-        {"type": "mrkdwn", "text": "*Avg Engagement Score:*\n{{ average }}/10"}
+        {"type": "mrkdwn", "text": "*Posts Generated:*\n{{ $node['Save Posts'].json.length }} variants"},
+        {"type": "mrkdwn", "text": "*Avg Engagement Score:*\n{{ Math.round($node['Save Posts'].json.reduce((sum, p) => sum + p['Engagement Score'], 0) / $node['Save Posts'].json.length) }}/10"}
       ]
     },
     {
@@ -587,12 +707,13 @@ return posts;
         {
           "type": "button",
           "text": {"type": "plain_text", "text": "Review in Airtable"},
-          "url": "https://airtable.com/[BASE_ID]/[TABLE_ID]"
+          "url": "https://airtable.com/{{ $env.AIRTABLE_BASE_ID }}/{{ $env.AIRTABLE_TABLE_ID }}"
         },
         {
           "type": "button",
           "text": {"type": "plain_text", "text": "Approve All"},
-          "value": "approve_all"
+          "value": "approve_all",
+          "style": "primary"
         }
       ]
     }
@@ -602,268 +723,88 @@ return posts;
 
 ---
 
-## Airtable Schema for Agent 4
+## Error Handling
 
-### Table 1: Content Generation Requests
+### Node: Error Handler
 
-| Field Name | Type | Configuration | Description |
-|------------|------|---------------|-------------|
-| Request ID | Autonumber | - | Primary key |
-| Source Type | Single select | Blog Post, Announcement, Case Study, Video, Product Launch, Event, News | Content source type |
-| Source URL | URL | - | Original content URL |
-| Source Content | Long text | - | Content text (if not URL) |
-| Target Platforms | Multiple select | LinkedIn, Twitter, Facebook, Instagram, TikTok, YouTube | Platforms to generate for |
-| Content Angle | Single select | Educational, Promotional, Thought Leadership, News, Behind the Scenes | Content approach |
-| Tone | Single select | Professional, Casual, Inspirational, Humorous, Urgent | Desired tone |
-| Call to Action | Single select | Read More, Sign Up, Download, Comment, Share, Visit Website, Book Demo | CTA type |
-| Include Hashtags | Checkbox | Default: true | Add hashtags? |
-| Variant Count | Number | Default: 2 | How many variants per platform |
-| Requested By | Single line text | - | User email/name |
-| Created Date | Created time | - | Auto-timestamp |
-| Started At | Date & time | - | Processing start |
-| Completed At | Date & time | - | Processing end |
-| Status | Single select | Pending, Processing, Complete, Failed | Current status |
-| Posts Generated | Number | - | Total posts created |
-| Link to Posts | Link to records | → Social Media Posts | All generated posts |
-| Notes | Long text | - | Additional context |
+**Trigger**: On workflow error
+**Purpose**: Capture errors, update status, alert team
 
-**Views**:
-- Active Requests: Status IN ("Pending", "Processing")
-- Completed: Status = "Complete", sort by Completed At desc
-- By Platform: Group by Target Platforms
-- By Source Type: Group by Source Type
+```javascript
+// Update Airtable status to Failed
+await updateAirtable({
+  table: 'Content Generation Requests',
+  record_id: $executionData.request_id,
+  fields: {
+    'Status': 'Failed',
+    'Error Message': $error.message,
+    'Failed At': new Date().toISOString()
+  }
+});
+
+// Send Slack alert
+await sendSlackMessage({
+  channel: '#ai-agents-errors',
+  text: `❌ Agent 4 failed for request ${$executionData.request_id}`,
+  error: $error.message,
+  stack: $error.stack
+});
+
+// Retry logic for transient errors
+if ($error.code === 'ETIMEDOUT' || $error.code === 'RATE_LIMIT') {
+  return { retry: true, delay: 5000 };
+}
+
+return { retry: false };
+```
 
 ---
 
-### Table 2: Social Media Posts
+## Cost Estimation
 
-| Field Name | Type | Configuration | Description |
-|------------|------|---------------|-------------|
-| Post ID | Autonumber | - | Primary key |
-| Request | Link to records | ← Content Generation Requests | Source request |
-| Platform | Single select | LinkedIn, Twitter, Facebook, Instagram | Target platform |
-| Variant | Number | 1, 2, 3, ... | A/B variant number |
-| Content | Long text | Required | Post content |
-| Hashtags | Long text | - | Comma-separated hashtags |
-| Character Count | Number | - | Total characters |
-| Engagement Score | Number | 1-10 | Predicted engagement |
-| Status | Single select | Draft, Scheduled, Published, Archived | Current status |
-| Scheduled Date | Date & time | - | When to publish |
-| Published Date | Date & time | - | When actually published |
-| Platform Post ID | Single line text | - | ID from social platform |
-| Performance Metrics | Long text | JSON | Likes, shares, comments, etc. |
-| Created At | Created time | - | Auto-timestamp |
-| Approved By | Single line text | - | Who approved |
-| Approval Date | Date & time | - | When approved |
-| Notes | Long text | - | Editorial notes |
-| Image URL | URL | - | Associated image/graphic |
-| Link to Schedule | Link to records | → Content Calendar | Scheduled post details |
+**Per Content Generation (4 platforms, 2 variants each)**:
+- Perplexity (context): $0.05
+- Claude (analysis): $0.08
+- Claude (8 posts): $0.26 (4 platforms × 2 variants × $0.03)
+- Gemini (optimize 8): $0.04 (8 × $0.005)
 
-**Formulas**:
+**Total: ~$0.43 per request**
 
-**Platform Icon**:
-```
-SWITCH(
-  {Platform},
-  'LinkedIn', '💼',
-  'Twitter', '🐦',
-  'Facebook', '👥',
-  'Instagram', '📸',
-  '📱'
-)
-```
-
-**Status Color**:
-```
-SWITCH(
-  {Status},
-  'Draft', '⚪',
-  'Scheduled', '🟡',
-  'Published', '🟢',
-  'Archived', '⚫'
-)
-```
-
-**Engagement Rating**:
-```
-IF({Engagement Score} >= 8, "🔥 High",
-  IF({Engagement Score} >= 6, "👍 Good",
-    IF({Engagement Score} >= 4, "👌 Okay", "❌ Low")
-  )
-)
-```
-
-**Views**:
-- Draft Posts: Status = "Draft", sort by Engagement Score desc
-- Scheduled: Status = "Scheduled", sort by Scheduled Date asc
-- Published: Status = "Published", sort by Published Date desc
-- By Platform: Group by Platform
-- High Engagement: Engagement Score >= 8
-- This Week: Scheduled Date is within this week
-- Needs Approval: Status = "Draft" AND Approved By is empty
+**Monthly Estimates** (based on usage):
+- Light use (5 requests/week): ~$8.60/month
+- Medium use (15 requests/week): ~$25.80/month
+- Heavy use (30 requests/week): ~$51.60/month
 
 ---
 
-### Table 3: Content Calendar (Optional)
-
-| Field Name | Type | Configuration | Description |
-|------------|------|---------------|-------------|
-| Calendar ID | Autonumber | - | Primary key |
-| Post Date | Date | Required | Publication date |
-| Time Slot | Single select | Morning (8-10am), Midday (12-2pm), Afternoon (3-5pm), Evening (6-8pm) | Time slot |
-| Platform | Single select | LinkedIn, Twitter, Facebook, Instagram | Platform |
-| Post | Link to records | → Social Media Posts | Linked post |
-| Content Theme | Single select | Product, Thought Leadership, Customer Story, Company News, Industry News | Theme |
-| Campaign | Single line text | - | Campaign name |
-| Status | Single select | Planned, Scheduled, Published, Cancelled | Status |
-| Notes | Long text | - | Planning notes |
-
-**Views**:
-- This Week: Post Date is within this week
-- By Platform: Group by Platform
-- By Theme: Group by Content Theme
-- Calendar View: Calendar by Post Date
-
----
-
-### Table 4: Brand Voice Guidelines
-
-| Field Name | Type | Configuration | Description |
-|------------|------|---------------|-------------|
-| Guideline ID | Autonumber | - | Primary key |
-| Active | Checkbox | - | Currently active? |
-| Brand Voice Description | Long text | Required | Overall brand voice |
-| Key Messaging Points | Long text | - | Core messages |
-| Do's | Long text | - | What to do |
-| Don'ts | Long text | - | What to avoid |
-| Sample Posts | Long text | - | Example good posts |
-| Prohibited Terms | Long text | - | Words/phrases to avoid |
-| Emoji Policy | Single select | Encouraged, Minimal, None | Emoji usage |
-| Tone Guidelines | Long text | - | Tone by platform |
-| Hashtag Strategy | Long text | - | Hashtag approach |
-| Updated Date | Last modified time | - | Auto-timestamp |
-| Updated By | Single line text | - | Who updated |
-
-**Views**:
-- Active Guidelines: Active = true
-- All Guidelines: Default view
-
----
-
-## Workflow 4B: Scheduled Publishing (Future)
+## Workflow 4B: Scheduled Publishing (Future Enhancement)
 
 **Purpose**: Automatically publish scheduled posts to social platforms
 
-**Trigger**: Cron (every hour, check for scheduled posts)
+**Trigger**: Cron (every hour)
 
 **Brief Design**:
 ```
-1. Fetch posts where Scheduled Date = now ± 1 hour
+1. Fetch posts where Scheduled Date = now ± 1 hour AND Status = "Scheduled"
 2. For each post:
-   - Get platform credentials
-   - Call platform API (LinkedIn, Twitter, etc.)
+   - Get platform credentials from secure vault
+   - Call platform API (LinkedIn, Twitter, Facebook, Instagram)
    - Publish post
-   - Save Platform Post ID
+   - Save Platform Post ID to Airtable
    - Update status to "Published"
-3. Track performance metrics (if supported by API)
-4. Send Slack notification of published posts
+   - Capture initial engagement metrics
+3. Send Slack notification of published posts
+4. Schedule follow-up metric collection (24h, 7d)
 ```
+
+**Platform APIs Required**:
+- LinkedIn: LinkedIn Marketing API
+- Twitter: Twitter API v2
+- Facebook: Facebook Graph API
+- Instagram: Instagram Graph API (via Facebook)
 
 ---
 
-## Integration Points
-
-### Buffer/Hootsuite Integration
-```javascript
-// Instead of direct platform publishing, send to Buffer
-{
-  "profile_ids": ["linkedin_id", "twitter_id"],
-  "text": "{{ post.content }}",
-  "media": {"link": "{{ post.image_url }}"},
-  "scheduled_at": "{{ post.scheduled_date }}"
-}
-```
-
-### Canva Integration (Future)
-```
-1. Post marked "Needs Image"
-2. Send brief to Canva API
-3. Generate branded graphic
-4. Attach to post
-5. Mark ready for scheduling
-```
-
----
-
-## LLM Prompt Library
-
-### 4A.CONTENT_ANALYSIS.v1.0
-- **Model**: Claude 3.5 Sonnet
-- **Tokens**: ~1500 input, ~1000 output
-- **Cost**: ~$0.08
-
-### 4A.LINKEDIN_POST.v1.0
-- **Model**: Claude 3.5 Sonnet
-- **Tokens**: ~800 input, ~400 output
-- **Cost**: ~$0.04
-
-### 4A.TWITTER_THREAD.v1.0
-- **Model**: Claude 3.5 Sonnet
-- **Tokens**: ~700 input, ~350 output
-- **Cost**: ~$0.03
-
-### 4A.FACEBOOK_POST.v1.0
-- **Model**: Claude 3.5 Sonnet
-- **Tokens**: ~700 input, ~300 output
-- **Cost**: ~$0.03
-
-### 4A.INSTAGRAM_CAPTION.v1.0
-- **Model**: Claude 3.5 Sonnet
-- **Tokens**: ~600 input, ~300 output
-- **Cost**: ~$0.03
-
-### 4A.OPTIMIZE_HASHTAGS.v1.0
-- **Model**: Gemini 2.0 Flash
-- **Tokens**: ~400 input, ~200 output
-- **Cost**: ~$0.005
-
-**Total Cost per Generation** (4 platforms, 2 variants): ~$0.42
-
----
-
-## Cost Optimization
-
-### Current Cost Breakdown (4 platforms, 2 variants each)
-```
-Perplexity (context):  $0.05 (12%)
-Claude (analysis):     $0.08 (19%)
-Claude (8 posts):      $0.26 (62%)
-Gemini (optimize):     $0.03 (7%)
-────────────────────────────
-Total:                 $0.42
-```
-
-### Optimization Opportunities
-1. **Batch processing**: Generate multiple requests together (save 15%)
-2. **Skip context research** for simple announcements (save $0.05)
-3. **Use Gemini** for simpler posts (save 80% on those posts)
-4. **Cache brand voice** in prompts (save 30-40% with prompt caching)
-
----
-
-## Success Metrics
-
-Track in Airtable:
-- Posts generated per week
-- Average engagement score
-- Approval rate (% posts published without edits)
-- Time saved (vs manual creation)
-- Platform performance (which performs best)
-- Variant testing results
-
----
-
-**Implementation Status**: Ready for development
-**Estimated Build Time**: 14-18 hours
-**Prerequisites**: Brand voice documented, social platform access, Airtable setup
-**Next Steps**: Document brand voice guidelines, configure LLM credentials, build workflow in n8n
+**Implementation Time**: 14-18 hours
+**Prerequisites**: Brand voice documented, LLM API access, Airtable setup
+**Next Steps**: Document brand guidelines, configure workflow in n8n, test with real content

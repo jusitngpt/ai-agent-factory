@@ -1,0 +1,456 @@
+{
+  "name": "[KAF] AI Agent Request Analysis",
+  "nodes": [
+    {
+      "parameters": {
+        "text": "={{ $json.content[0].text }}",
+        "schemaType": "fromJson",
+        "jsonSchemaExample": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"ice_rating\": {\n      \"type\": \"string\",\n      \"description\": \"The ICE priority rating for the AI agent request\",\n      \"enum\": [\n        \"1 - High Impact, Low Effort\",\n        \"2 - High Impact High Effort\",\n        \"2 - Low Impact Low Effort\",\n        \"3 - Low Impact High Effort\"\n      ]\n    },\n    \"reason_for_ice_rating\": {\n      \"type\": \"string\",\n      \"description\": \"Detailed explanation of the ICE rating including Impact, Confidence, and Ease scores with justification (2-4 paragraphs)\"\n    },\n    \"recommended_workflow\": {\n      \"type\": \"string\",\n      \"description\": \"Technical description of the recommended agentic workflow including n8n nodes, architecture, data flow, integrations, and implementation details\"\n    }\n  },\n  \"required\": [\n    \"ice_rating\",\n    \"reason_for_ice_rating\",\n    \"recommended_workflow\"\n  ],\n  \"additionalProperties\": false\n}",
+        "options": {}
+      },
+      "id": "information-extractor",
+      "name": "Information Extractor",
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1,
+      "position": [
+        656,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-pro",
+        "options": {}
+      },
+      "id": "gemini-model",
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        656,
+        464
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "JpCnJlmNYk1qexN5",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "claude-sonnet-4-5-20250929",
+          "mode": "list",
+          "cachedResultName": "claude-sonnet-4-5-20250929"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert AI automation architect specializing in analyzing and prioritizing AI agent requests for the Katalon Agent Factory (KAF) system. Your role is to evaluate new AI agent proposals using the ICE scoring framework and provide technical recommendations.\n\nCONTEXT:\nThe Katalon Agent Factory is a sophisticated AI-powered marketing automation system built on n8n workflows. It consists of interconnected agents that handle competitive intelligence, content generation, lead scoring, and personalized outreach. The system integrates with Airtable, Google Workspace, Slack, and various APIs.\n\nICE FRAMEWORK:\nICE stands for Impact, Confidence, and Ease. Evaluate each dimension:\n\n**Impact (1-10)**: How much value will this agent deliver?\n- Business outcomes (revenue, efficiency, cost savings)\n- Scope of benefit (team, department, company-wide)\n- Strategic alignment with KPIs/OKRs\n\n**Confidence (1-10)**: How certain are you about the impact estimate?\n- Similar proven use cases\n- Data quality and availability\n- Technical feasibility\n\n**Ease (1-10)**: How simple is implementation?\n- Technical complexity\n- Integration requirements\n- Resource and time investment\n- Maintenance overhead\n\nICE Score = (Impact × Confidence × Ease) / 100\n\n**RATING CATEGORIES:**\n- **1 - High Impact, Low Effort**: ICE Score 7-10 (Quick wins - prioritize immediately)\n- **2 - High Impact High Effort**: ICE Score 4-6.9 (Strategic investments - schedule carefully)\n- **2 - Low Impact Low Effort**: ICE Score 4-6.9 (Nice-to-haves - fill gaps in roadmap)\n- **3 - Low Impact High Effort**: ICE Score 0-3.9 (Avoid or defer indefinitely)\n\n---\n\n**AI AGENT REQUEST DATA:**\n\nRequestor: {{ $json.fields['Requestor Name'] }}\nDepartment: {{ $json.fields['Requestor Department'] }}\nAgent Name: {{ $json.fields['AI Agent Request'] }}\n\nDescription:\n{{ $json.fields['Description of AI Agent'] }}\n\nData Sources: {{ $json.fields['Data Sources'] }}\nTrigger Type: {{ $json.fields['Trigger or On Demand'] }}\nKPI/OKR Alignment: {{ $json.fields['KPI or OKR alignment'] }}\nPotential Impact: {{ $json.fields['Potential Impact'] }}\nRequest Date: {{ $json.fields['Request Date'] }}\n\n---\n\n**YOUR ANALYSIS TASK:**\n\nAnalyze this AI agent request and provide the following three outputs:\n\n**1. ICE RATING**\nSelect ONE of the following exact options:\n- \"1 - High Impact, Low Effort\"\n- \"2 - High Impact High Effort\"\n- \"2 - Low Impact Low Effort\"\n- \"3 - Low Impact High Effort\"\n\n**2. REASON FOR ICE RATING**\nProvide a detailed 2-4 paragraph explanation that includes:\n- Your numerical estimates for Impact, Confidence, and Ease (with the calculation)\n- Specific justification for each dimension based on the request details\n- Key factors that influenced your rating\n- Any assumptions or considerations\n- Potential risks or challenges\n\n**3. RECOMMENDED AGENTIC WORKFLOW**\nProvide a technical workflow description that includes:\n- High-level architecture (trigger → processing → output)\n- Specific n8n nodes recommended (e.g., Airtable, HTTP Request, Claude AI, etc.)\n- Data flow and transformations needed\n- Integration points with existing KAF system\n- Suggested scheduling (if trigger-based) or invocation method (if on-demand)\n- Error handling and monitoring approach\n- Estimated development time\n\nFormat your workflow description as a technical blueprint that an n8n developer could use to build the agent.\n\n---\n\n**OUTPUT FORMAT:**\n\nProvide your analysis in the following structure:\n\nICE RATING: [Select one of the four exact options above]\n\nREASON FOR ICE RATING:\n[Your detailed analysis with numerical ICE calculations and justification]\n\nRECOMMENDED AGENTIC WORKFLOW:\n[Your technical workflow description]\n\n---\n\nBegin your analysis now."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        320,
+        304
+      ],
+      "id": "2b829296-796b-41f9-9063-66b8490c1373",
+      "name": "Message a model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "nTlyDyI2J4xuXYyN",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        },
+        "authentication": "airtableTokenApi",
+        "baseId": {
+          "__rl": true,
+          "value": "appELRlEUB59eOw3q",
+          "mode": "id"
+        },
+        "tableId": {
+          "__rl": true,
+          "value": "tblXpXyzvOrNdqkqE",
+          "mode": "id"
+        },
+        "triggerField": "Request Date",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.airtableTrigger",
+      "typeVersion": 1,
+      "position": [
+        64,
+        304
+      ],
+      "id": "0d465a1a-eaf2-4a89-a4d0-85b12e5674fe",
+      "name": "Airtable Trigger1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "FtnbunP4DdyOkkW4",
+          "name": "Airtable Personal Access Token account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appELRlEUB59eOw3q",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblXpXyzvOrNdqkqE",
+          "mode": "id"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Airtable Trigger1').item.json.id }}",
+            "ICE Rating": "={{ $json.output.properties.ice_rating.enum[0] }}",
+            "Reason for ICE Rating": "={{ $json.output.properties.reason_for_ice_rating.description }}",
+            "Recommended Agentic Workflow": "={{ $json.output.properties.recommended_workflow.description }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Requestor Name",
+              "displayName": "Requestor Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Requestor Department",
+              "displayName": "Requestor Department",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "AI Agent Request",
+              "displayName": "AI Agent Request",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description of AI Agent",
+              "displayName": "Description of AI Agent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Data Sources",
+              "displayName": "Data Sources",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Airtable",
+                  "value": "Airtable"
+                },
+                {
+                  "name": "Google Drive",
+                  "value": "Google Drive"
+                },
+                {
+                  "name": "Email/Gmail",
+                  "value": "Email/Gmail"
+                },
+                {
+                  "name": "Social Media",
+                  "value": "Social Media"
+                },
+                {
+                  "name": "Web Scraping",
+                  "value": "Web Scraping"
+                },
+                {
+                  "name": "APIs",
+                  "value": "APIs"
+                },
+                {
+                  "name": "RSS Feeds",
+                  "value": "RSS Feeds"
+                },
+                {
+                  "name": "Database",
+                  "value": "Database"
+                },
+                {
+                  "name": "Slack",
+                  "value": "Slack"
+                },
+                {
+                  "name": "Other",
+                  "value": "Other"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Trigger or On Demand",
+              "displayName": "Trigger or On Demand",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Trigger-based",
+                  "value": "Trigger-based"
+                },
+                {
+                  "name": "On-Demand",
+                  "value": "On-Demand"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "KPI or OKR alignment",
+              "displayName": "KPI or OKR alignment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Potential Impact",
+              "displayName": "Potential Impact",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Request Date",
+              "displayName": "Request Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ICE Rating",
+              "displayName": "ICE Rating",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reason for ICE Rating",
+              "displayName": "Reason for ICE Rating",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Recommended Agentic Workflow",
+              "displayName": "Recommended Agentic Workflow",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1008,
+        304
+      ],
+      "id": "6debd0c7-8ac6-494a-acdb-3b5d146e12d0",
+      "name": "Update record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "FtnbunP4DdyOkkW4",
+          "name": "Airtable Personal Access Token account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09TPD4DEFQ",
+          "mode": "list",
+          "cachedResultName": "new-agent-requests"
+        },
+        "text": "=A new agent request for:  {{ $json.fields['AI Agent Request'] }} \n\nRequested by: {{ $json.fields['Requestor Name'] }}\n\nICE Rating: {{ $json.fields['ICE Rating'] }}\n\nKPI/OKR Alignement: {{ $json.fields['KPI or OKR alignment'] }}\n\nAirtable ID: {{ $json.id }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1232,
+        304
+      ],
+      "id": "a20070a6-0c71-4634-97f9-07b108a181d3",
+      "name": "Send a message",
+      "webhookId": "8c0c85dd-54cc-426e-be8b-0bc52e457b75",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "C4FkgQOq0X7pAmsc",
+          "name": "Slack account 3"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "executionTimeout": 3600,
+    "timezone": "UTC",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "19da16e4-6c7d-4cbd-9b43-ef6168a6df19",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d422a02969380266aab4ff16dff35a7fec79c784c7ae5f5d0b2768f0ec8aa943"
+  },
+  "id": "jVRyNBedQHJAxHg6",
+  "tags": []
+}

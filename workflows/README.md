@@ -18,12 +18,11 @@ This folder contains the actual n8n workflow JSON exports for all Katalon Agent 
 | Workflow | File | Status | Documentation |
 |----------|------|--------|---------------|
 | AI Agent Request Analysis | `ai-agent-request-analysis.json` | ✅ Active | `/agents/utilities/ai-agent-request-analysis/` |
-| Agent-1A On-Demand Research V2 | `agent-1a-on-demand-v2.json` | 📋 Ready | `/agents/01-competitive-intel-monitor/` |
-| Agent-1B RSS Monitor V4 | `agent-1b-rss-monitor-v4.json` | 📋 Ready | `/agents/01b-rss-monitor-v4/` |
-| Agent-2 SEO Intelligence V2 | `agent-2-seo-intelligence-v2.json` | 📋 Ready | `/agents/02-seo-content-intelligence/` |
-| Agent-3 Voice of Customer V2 | `agent-3-voice-of-customer-v2.json` | 📋 Ready | `/agents/03-voice-of-customer/` |
-| Agent 5 Lead Scoring V3 | `agent-5-lead-scoring-v3.json` | 📋 Ready | `/agents/05-lead-intel-scoring/` |
-| Social Media Agent V3 | `social-media-v3.json` | 📋 Ready | `/agents/social-media-v3/` |
+| Agent-1B RSS Monitor V4 Multi-Feed | `agent-1b-v4-multi-feed.json` | 📋 Ready | `/agents/01b-rss-monitor-v4/` |
+| Agent-2 SEO Intelligence V2 | `agent-2-seo-intelligence-v2.json` | 📋 Ready | `/agents/02-seo-intelligence-v2/` |
+| Agent-3 Voice of Customer V2 | `agent-3-voice-of-customer-v2.json` | 📋 Ready | `/agents/03-voice-of-customer-v2/` |
+| Agent 5 Lead Scoring V3 | `agent-5-lead-scoring-v3.json` | 📋 Ready | `/agents/05-lead-scoring-v3/` |
+| Social Media Agent V3 | `social-media-agent-v3.json` | 📋 Ready | `/agents/04-social-media-v3/` |
 
 ### Historical Versions
 

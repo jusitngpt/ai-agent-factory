@@ -1,0 +1,811 @@
+{
+  "name": "[KAF] Agent-3 - Voice of Customer - Sentiment Analysis - V2 w Airtable",
+  "nodes": [
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "competitor",
+              "value": "={{ $json.competitors[0] }}"
+            },
+            {
+              "name": "start_time",
+              "value": "={{ Date.now() }}"
+            },
+            {
+              "name": "website",
+              "value": "={{ $json.feedUrls[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "extract-info",
+      "name": "Extract Competitor Info",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        800,
+        176
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appELRlEUB59eOw3q",
+          "mode": "list",
+          "cachedResultName": "Katalon Agent Factory",
+          "cachedResultUrl": "https://airtable.com/appELRlEUB59eOw3q"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tble1v4I6sO6f7oSD",
+          "mode": "list",
+          "cachedResultName": "Competitor Sentiment Analysis",
+          "cachedResultUrl": "https://airtable.com/appELRlEUB59eOw3q/tble1v4I6sO6f7oSD"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Competitor": "={{ $json.output.voiceOfCustomerAnalysis.metadata.company }}",
+            "Analysis Date": "={{ $json.output.voiceOfCustomerAnalysis.metadata.analysisDate }}",
+            "Status": "Completed",
+            "Overall Sentiment Score": "={{ $json.output.voiceOfCustomerAnalysis.metadata.overallSentimentScore }}",
+            "Data Source Count": "={{ $json.output.voiceOfCustomerAnalysis.metadata.dataSourceCount }}",
+            "Executive Summary": "={{ $json.output.voiceOfCustomerAnalysis.executiveSummary.summaryText }}",
+            "Key Trends": "={{ $json.output.voiceOfCustomerAnalysis.executiveSummary.keyTrends[1] }}",
+            "Overall Satisfaction": "={{ $json.output.voiceOfCustomerAnalysis.sentimentBreakdown.overallSatisfaction.classification }}",
+            "Satisfaction Explanation": "={{ $json.output.voiceOfCustomerAnalysis.sentimentBreakdown.overallSatisfaction.explanation }}",
+            "What Customers Love": "={{ $json.output.voiceOfCustomerAnalysis.sentimentBreakdown.whatCustomersLove[0].description }}",
+            "What Customers Dislike": "={{ $json.output.voiceOfCustomerAnalysis.sentimentBreakdown.whatCustomersLove[1].description }}",
+            "G2 Rating": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.g2.rating }}",
+            "G2 Total Reviews": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.g2.totalReviews }}",
+            "G2 Key Themes": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.g2.keyThemes[0].theme }}",
+            "Capterra Rating": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.capterra.rating }}",
+            "Capterra Total Reviews": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.capterra.totalReviews }}",
+            "Capterra Key Themes": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.capterra.keyThemes[0].theme }}. {{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.capterra.keyThemes[1].theme }}.",
+            "TrustRadius Rating": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.trustRadius.rating }}",
+            "TrustRadius Total Reviews": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.trustRadius.totalReviews }}",
+            "TrustRadius Key Themes": "={{ $json.output.voiceOfCustomerAnalysis.reviewPlatformAnalysis.trustRadius.keyThemes[0].theme }}. ",
+            "Customer Pain Points": "={{ $json.output.voiceOfCustomerAnalysis.customerPainPoints[0].painPoint }}. {{ $json.output.voiceOfCustomerAnalysis.customerPainPoints[1].painPoint }}. {{ $json.output.voiceOfCustomerAnalysis.customerPainPoints[2].painPoint }}. ",
+            "Unmet Customer Needs": "={{ $json.output.voiceOfCustomerAnalysis.competitiveOpportunities.unmetNeeds[0].description }}. {{ $json.output.voiceOfCustomerAnalysis.competitiveOpportunities.unmetNeeds[1].description }}. ",
+            "Switching Triggers": "= {{ $json.output.voiceOfCustomerAnalysis.competitiveOpportunities.switchingTriggers[0].trigger }}. {{ $json.output.voiceOfCustomerAnalysis.competitiveOpportunities.switchingTriggers[1].trigger }}. ",
+            "Messaging Opportunities": "={{ $json.output.voiceOfCustomerAnalysis.competitiveOpportunities.messagingOpportunities[0].suggestedMessaging }}",
+            "Critical Monitoring Signals": "={{ $json.output.voiceOfCustomerAnalysis.monitoringRecommendations.criticalSignals[0].description }}. {{ $json.output.voiceOfCustomerAnalysis.monitoringRecommendations.criticalSignals[1].description }}",
+            "Trending Topics": "={{ $json.output.voiceOfCustomerAnalysis.monitoringRecommendations.trendingTopics[0].topic }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Analysis ID",
+              "displayName": "Analysis ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Competitor",
+              "displayName": "Competitor",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analysis Date",
+              "displayName": "Analysis Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Queued",
+                  "value": "Queued"
+                },
+                {
+                  "name": "Processing",
+                  "value": "Processing"
+                },
+                {
+                  "name": "Completed",
+                  "value": "Completed"
+                },
+                {
+                  "name": "Failed",
+                  "value": "Failed"
+                },
+                {
+                  "name": "Archived",
+                  "value": "Archived"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Overall Sentiment Score",
+              "displayName": "Overall Sentiment Score",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Data Source Count",
+              "displayName": "Data Source Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Executive Summary",
+              "displayName": "Executive Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Key Trends",
+              "displayName": "Key Trends",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Overall Satisfaction",
+              "displayName": "Overall Satisfaction",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Positive",
+                  "value": "Positive"
+                },
+                {
+                  "name": "Mixed",
+                  "value": "Mixed"
+                },
+                {
+                  "name": "Negative",
+                  "value": "Negative"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Satisfaction Explanation",
+              "displayName": "Satisfaction Explanation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "What Customers Love",
+              "displayName": "What Customers Love",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "What Customers Dislike",
+              "displayName": "What Customers Dislike",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "G2 Rating",
+              "displayName": "G2 Rating",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "G2 Total Reviews",
+              "displayName": "G2 Total Reviews",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "G2 Key Themes",
+              "displayName": "G2 Key Themes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Capterra Rating",
+              "displayName": "Capterra Rating",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Capterra Total Reviews",
+              "displayName": "Capterra Total Reviews",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Capterra Key Themes",
+              "displayName": "Capterra Key Themes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "TrustRadius Rating",
+              "displayName": "TrustRadius Rating",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "TrustRadius Total Reviews",
+              "displayName": "TrustRadius Total Reviews",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "TrustRadius Key Themes",
+              "displayName": "TrustRadius Key Themes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Customer Pain Points",
+              "displayName": "Customer Pain Points",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Unmet Customer Needs",
+              "displayName": "Unmet Customer Needs",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Switching Triggers",
+              "displayName": "Switching Triggers",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Messaging Opportunities",
+              "displayName": "Messaging Opportunities",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Critical Monitoring Signals",
+              "displayName": "Critical Monitoring Signals",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Trending Topics",
+              "displayName": "Trending Topics",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Raw AI Response",
+              "displayName": "Raw AI Response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Agent Run ID",
+              "displayName": "Agent Run ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Processing Cost",
+              "displayName": "Processing Cost",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "update-competitor",
+      "name": "Update Competitor Sentiment",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1952,
+        176
+      ],
+      "typeVersion": 2,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "FtnbunP4DdyOkkW4",
+          "name": "Airtable Personal Access Token account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09SEHBMU0L",
+          "mode": "list",
+          "cachedResultName": "voc"
+        },
+        "text": "=🚨 VOC Analysis for: {{ $('Extract Competitor Info').item.json.competitor }} is ready.",
+        "otherOptions": {}
+      },
+      "id": "slack-alert",
+      "name": "Slack Alert - Opportunity",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        2400,
+        80
+      ],
+      "typeVersion": 2.1,
+      "webhookId": "102ba67f-a8a1-49b3-921a-28d84a7ae60b",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "C4FkgQOq0X7pAmsc",
+          "name": "Slack account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09SEHBMU0L",
+          "mode": "list",
+          "cachedResultName": "voc"
+        },
+        "text": "=📊 Agent 3 completed sentiment analysis",
+        "otherOptions": {}
+      },
+      "id": "slack-summary",
+      "name": "Slack Summary",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        2400,
+        272
+      ],
+      "typeVersion": 2.1,
+      "webhookId": "fd53ec3a-c0bf-4979-bf01-3f543056303c",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "C4FkgQOq0X7pAmsc",
+          "name": "Slack account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      feedUrls: [\n        \"https://www.selenium.dev\",\n        \"https://testsigma.com\",\n        \"https://www.browserstack.com/\",\n        \"https://www.ranorex.com\",\n        \"https://www.tricentis.com/products/tosca\"\n      ],\n      competitors: [\n        \"Selenium\",\n        \"Testsigma\",\n        \"BrowserStack\",\n        \"Ranorex\",\n        \"Tricentis Tosca\"\n      ]\n    }\n  }\n];"
+      },
+      "name": "RSS Feed Array Setup",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        352,
+        176
+      ],
+      "id": "3bbab2a5-eba7-4919-8415-6db4414e32bd"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "name": "Loop Over Feeds",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        576,
+        176
+      ],
+      "id": "56766b0e-56c4-4564-807f-cf3371518499"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months",
+              "triggerAtHour": 10
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule Trigger - Monthly",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        128,
+        176
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "model": "sonar-pro",
+        "messages": {
+          "message": [
+            {
+              "content": "=You are a customer sentiment analyst researching competitor reviews and feedback.\n\nResearch customer sentiment and reviews for {{ $json.competitors[0] }}\n\nCOMPANY: {{ $json.competitors[0] }}\nINDUSTRY \nPRODUCTS \n\nRESEARCH FOCUS - Last 90 Days:\n\n1. REVIEW PLATFORMS:\n   - G2 ratings and reviews\n   - Capterra feedback\n   - TrustRadius reviews\n   - Product Hunt comments\n   - Reddit discussions\n\n2. SENTIMENT ANALYSIS:\n   - Overall satisfaction trends\n   - Common praise points\n   - Frequent complaints\n   - Feature requests\n   - Support quality feedback\n\n3. COMPETITIVE COMPARISONS:\n   - How they're compared to alternatives\n   - Win/loss factors mentioned\n   - Switching reasons\n\n4. KEY THEMES:\n   - Product strengths\n   - Product weaknesses\n   - Pricing concerns\n   - Integration issues\n   - User experience feedback\n\nProvide specific review excerpts and ratings where available. Focus on recent feedback (last 90 days)."
+            }
+          ]
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.perplexity",
+      "typeVersion": 1,
+      "position": [
+        1024,
+        176
+      ],
+      "id": "d8355fcd-c407-4046-9b99-f5315940150c",
+      "name": "Message a model",
+      "credentials": {
+        "perplexityApi": {
+          "id": "Al6cSZ4UupZBqa8O",
+          "name": "Perplexity account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-3-pro-preview",
+          "mode": "list",
+          "cachedResultName": "models/gemini-3-pro-preview"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Analyze customer sentiment data to create actionable competitive intelligence:\n\nCOMPANY: \\{{ $('Extract Competitor Info').item.json.competitor }}n\nCUSTOMER FEEDBACK DATA:\n{{ $json.choices[0].message.content }}\n\n---\n\nCREATE A COMPREHENSIVE VOICE OF CUSTOMER ANALYSIS:\n\n# Executive Summary (Sentiment Score: X/100)\nProvide 2-3 paragraphs summarizing overall customer sentiment and key trends.\n\n# Sentiment Breakdown\n## Overall Satisfaction: [Positive/Mixed/Negative]\nRate sentiment 1-100 and explain the score.\n\n## Key Sentiment Drivers\n### What Customers Love (Top 5)\nSpecific features and aspects customers praise most.\n\n### What Customers Dislike (Top 5)\nCommon complaints and pain points.\n\n# Review Platform Analysis\n## G2\n- Rating: [X/5]\n- Key themes from reviews\n\n## Capterra\n- Rating: [X/5]\n- Key themes from reviews\n\n## TrustRadius\n- Rating: [X/5]\n- Key themes from reviews\n\n# Customer Pain Points\nDetailed analysis of the top 7-10 customer complaints with supporting evidence.\n\n# Competitive Opportunities for Us\n## Unmet Needs (Top 5)\nNeeds their customers express that we could fulfill.\n\n## Switching Triggers\nFactors that might make their customers consider alternatives.\n\n## Messaging Opportunities\nHow we can position against their weaknesses.\n\n# Monitoring Recommendations\nWhat signals to watch for that indicate growing customer dissatisfaction.\n\n---\n\nBe specific with review excerpts and examples. Focus on actionable insights.\n\nDO NOT OUTPUT ANY MARKDOWN GATES AROUND THE JSON INCLUDING \"Json and \"\""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        176
+      ],
+      "id": "1c392b38-720f-4ff3-bfc8-130d9aaab493",
+      "name": "Message a model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "JpCnJlmNYk1qexN5",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.content.parts[0].text }}",
+        "schemaType": "fromJson",
+        "jsonSchemaExample": "{\n  \"voiceOfCustomerAnalysis\": {\n    \"metadata\": {\n      \"company\": \"Katalon Studio\",\n      \"analysisDate\": \"2025-01-15T10:30:00Z\",\n      \"dataSourceCount\": 247,\n      \"overallSentimentScore\": 68\n    },\n    \n    \"executiveSummary\": {\n      \"sentimentScore\": 68,\n      \"summaryText\": \"Katalon Studio shows mixed-to-positive customer sentiment with a score of 68/100. Customers consistently praise the platform's ease of use for beginners and cross-platform testing capabilities. However, significant friction points emerge around pricing transparency, debugging complexity, and limited customization for advanced users.\\n\\nThe customer base appears divided between satisfied SMB users who appreciate the no-code approach and frustrated enterprise teams struggling with scalability and integration limitations. Recent reviews indicate growing concerns about customer support response times and documentation quality.\\n\\nKey trend: Increasing mentions of customers evaluating alternatives after encountering limitations in CI/CD pipeline integration and custom reporting capabilities.\",\n      \"keyTrends\": [\n        \"Growing frustration with limited API extensibility among enterprise users\",\n        \"Positive momentum in community-driven content and tutorials\",\n        \"Rising concerns about support response times (mentioned in 23% of recent reviews)\"\n      ]\n    },\n    \n    \"sentimentBreakdown\": {\n      \"overallSatisfaction\": {\n        \"classification\": \"Mixed\",\n        \"score\": 68,\n        \"explanation\": \"The score reflects a polarized customer base. 58% of reviews are positive (4-5 stars), 24% are neutral (3 stars), and 18% are negative (1-2 stars). The moderate score is pulled down by specific pain points around pricing and enterprise-grade features, while maintained by strong satisfaction among SMB users and beginners.\"\n      },\n      \n      \"whatCustomersLove\": [\n        {\n          \"rank\": 1,\n          \"feature\": \"User-Friendly Interface\",\n          \"description\": \"Customers consistently highlight the intuitive UI and low learning curve, especially for team members without extensive coding experience\",\n          \"frequency\": \"Very High\",\n          \"exampleQuotes\": [\n            \"Even our manual QA testers were able to create automated tests within their first week\",\n            \"The record and playback feature is a game-changer for rapid test creation\"\n          ]\n        },\n        {\n          \"rank\": 2,\n          \"feature\": \"Cross-Platform Testing\",\n          \"description\": \"Strong appreciation for unified web, mobile, API, and desktop testing in a single tool\",\n          \"frequency\": \"High\",\n          \"exampleQuotes\": [\n            \"We consolidated three different tools into Katalon and saved significant licensing costs\",\n            \"Being able to test our web app and mobile app from the same platform improved our workflow efficiency\"\n          ]\n        },\n        {\n          \"rank\": 3,\n          \"feature\": \"Built-in Keywords and Libraries\",\n          \"description\": \"Users value the extensive pre-built keyword library that accelerates test development\",\n          \"frequency\": \"High\",\n          \"exampleQuotes\": [\n            \"The built-in keywords cover 90% of our testing needs without custom scripting\",\n            \"Katalon's library saved us weeks of development time compared to building frameworks from scratch\"\n          ]\n        }\n      ],\n      \n      \"whatCustomersDislike\": [\n        {\n          \"rank\": 1,\n          \"issue\": \"Pricing and Licensing Confusion\",\n          \"description\": \"Customers report lack of transparency in pricing structure and unexpected costs when scaling\",\n          \"severity\": \"High\",\n          \"frequency\": \"Very High\",\n          \"exampleQuotes\": [\n            \"Pricing went from affordable to astronomical once we needed more than 5 parallel executions\",\n            \"The website doesn't show clear pricing - we had to schedule three sales calls to understand costs\"\n          ]\n        },\n        {\n          \"rank\": 2,\n          \"issue\": \"Limited Debugging Capabilities\",\n          \"description\": \"Advanced users struggle with insufficient debugging tools and error messages\",\n          \"severity\": \"High\",\n          \"frequency\": \"High\",\n          \"exampleQuotes\": [\n            \"Error messages are vague - often just 'Test Failed' without actionable details\",\n            \"Debugging complex test failures requires excessive time compared to Selenium with proper IDE\"\n          ]\n        }\n      ]\n    },\n    \n    \"reviewPlatformAnalysis\": {\n      \"g2\": {\n        \"rating\": 4.3,\n        \"totalReviews\": 156,\n        \"keyThemes\": [\n          {\n            \"theme\": \"Easy to Learn\",\n            \"sentiment\": \"Positive\",\n            \"mentions\": 89,\n            \"exampleQuote\": \"Our team was productive within days, not weeks like with Selenium\"\n          },\n          {\n            \"theme\": \"Enterprise Limitations\",\n            \"sentiment\": \"Negative\",\n            \"mentions\": 34,\n            \"exampleQuote\": \"Lacks enterprise-grade reporting and analytics compared to competitors\"\n          }\n        ]\n      },\n      \n      \"capterra\": {\n        \"rating\": 4.1,\n        \"totalReviews\": 62,\n        \"keyThemes\": [\n          {\n            \"theme\": \"Value for SMBs\",\n            \"sentiment\": \"Positive\",\n            \"mentions\": 41,\n            \"exampleQuote\": \"Perfect for our small team - gives us enterprise testing at SMB pricing\"\n          },\n          {\n            \"theme\": \"Support Response Time\",\n            \"sentiment\": \"Negative\",\n            \"mentions\": 18,\n            \"exampleQuote\": \"Ticket response times average 3-4 days, which is too slow for production issues\"\n          }\n        ]\n      },\n      \n      \"trustRadius\": {\n        \"rating\": 7.8,\n        \"totalReviews\": 29,\n        \"keyThemes\": [\n          {\n            \"theme\": \"Integration Capabilities\",\n            \"sentiment\": \"Mixed\",\n            \"mentions\": 12,\n            \"exampleQuote\": \"Jira integration works well, but Jenkins integration required custom workarounds\"\n          }\n        ]\n      }\n    },\n    \n    \"customerPainPoints\": [\n      {\n        \"rank\": 1,\n        \"category\": \"Pricing\",\n        \"painPoint\": \"Pricing Opacity and Unexpected Scaling Costs\",\n        \"description\": \"Customers report difficulty understanding pricing structure upfront, leading to budget surprises as teams scale usage\",\n        \"impact\": \"Critical\",\n        \"frequency\": 37,\n        \"supportingEvidence\": [\n          {\n            \"source\": \"G2\",\n            \"quote\": \"We budgeted for $5K/year but ended up at $28K once we added execution nodes and analytics\",\n            \"date\": \"2025-01-08\"\n          },\n          {\n            \"source\": \"Capterra\",\n            \"quote\": \"Sales team wasn't upfront about per-execution pricing - felt like a bait and switch\",\n            \"date\": \"2024-12-15\"\n          }\n        ],\n        \"affectedUserSegments\": [\n          \"Growing Teams\",\n          \"Enterprise Evaluators\"\n        ]\n      },\n      {\n        \"rank\": 2,\n        \"category\": \"Support\",\n        \"painPoint\": \"Slow Support Response Times\",\n        \"description\": \"Enterprise customers report inadequate support SLAs with responses taking 3-5 days for critical issues\",\n        \"impact\": \"High\",\n        \"frequency\": 28,\n        \"supportingEvidence\": [\n          {\n            \"source\": \"TrustRadius\",\n            \"quote\": \"Had a production blocker and didn't hear back for 4 days. Unacceptable for enterprise software\",\n            \"date\": \"2025-01-03\"\n          }\n        ],\n        \"affectedUserSegments\": [\n          \"Enterprise\"\n        ]\n      }\n    ],\n    \n    \"competitiveOpportunities\": {\n      \"unmetNeeds\": [\n        {\n          \"rank\": 1,\n          \"need\": \"Transparent, Predictable Enterprise Pricing\",\n          \"description\": \"Customers want clear pricing calculators and volume discounts visible before sales engagement\",\n          \"customerDemand\": \"Very High\",\n          \"ourCapability\": \"Strong Match\",\n          \"evidenceQuotes\": [\n            \"Wish they had pricing like [Competitor] - clear calculator on website\",\n            \"Want to know costs before I waste time on demos and trials\"\n          ]\n        },\n        {\n          \"rank\": 2,\n          \"need\": \"Advanced Debugging and Test Analysis Tools\",\n          \"description\": \"Enterprise teams need sophisticated debugging capabilities, AI-driven failure analysis, and better error diagnostics\",\n          \"customerDemand\": \"High\",\n          \"ourCapability\": \"Strong Match\",\n          \"evidenceQuotes\": [\n            \"Need better root cause analysis tools for test failures\",\n            \"Would pay extra for AI-assisted debugging like [Competitor] offers\"\n          ]\n        }\n      ],\n      \n      \"switchingTriggers\": [\n        {\n          \"trigger\": \"Pricing Renewal Shock\",\n          \"description\": \"Customers express openness to switching after unexpected price increases at renewal\",\n          \"likelihood\": \"High\",\n          \"timeframe\": \"At renewal (60-90 days notice typical)\",\n          \"affectedSegment\": \"Mid-market and Enterprise customers hitting scale limitations\",\n          \"supportingEvidence\": \"14 reviews mentioned evaluating alternatives after pricing discussions\"\n        },\n        {\n          \"trigger\": \"Integration Roadblocks\",\n          \"description\": \"Teams encounter CI/CD integration issues and start evaluating alternatives\",\n          \"likelihood\": \"Moderate\",\n          \"timeframe\": \"Immediate (during implementation)\",\n          \"affectedSegment\": \"DevOps-mature organizations\",\n          \"supportingEvidence\": \"Multiple mentions of Jenkins, GitLab CI, and Azure DevOps integration challenges\"\n        }\n      ],\n      \n      \"messagingOpportunities\": [\n        {\n          \"theirWeakness\": \"Pricing opacity and unexpected costs at scale\",\n          \"ourStrength\": \"Transparent pricing with online calculator and predictable per-user model\",\n          \"suggestedMessaging\": \"Know your testing costs upfront. Our transparent pricing means no surprises when you scale.\",\n          \"targetAudience\": \"Mid-market and Enterprise decision makers burned by usage-based pricing\",\n          \"priority\": \"High\",\n          \"supportingData\": \"37% of negative reviews mention pricing concerns\"\n        },\n        {\n          \"theirWeakness\": \"Limited debugging and error diagnostics\",\n          \"ourStrength\": \"AI-powered failure analysis and comprehensive debugging tools\",\n          \"suggestedMessaging\": \"Stop wasting hours debugging test failures. Our AI identifies root causes in seconds.\",\n          \"targetAudience\": \"Engineering teams and QA managers frustrated with troubleshooting time\",\n          \"priority\": \"High\",\n          \"supportingData\": \"28% of reviews mention debugging challenges\"\n        }\n      ]\n    },\n    \n    \"monitoringRecommendations\": {\n      \"criticalSignals\": [\n        {\n          \"signal\": \"Support complaint frequency\",\n          \"description\": \"Monitor mentions of support response times and quality - trending negative\",\n          \"monitoringFrequency\": \"Weekly\",\n          \"thresholdAlert\": \"If support complaints exceed 25% of new reviews for 2 consecutive weeks\",\n          \"datasources\": [\n            \"G2\",\n            \"Capterra\",\n            \"Reddit r/QualityAssurance\"\n          ]\n        },\n        {\n          \"signal\": \"Pricing-related churn indicators\",\n          \"description\": \"Watch for reviews mentioning 'switching' or 'alternatives' in context of pricing\",\n          \"monitoringFrequency\": \"Weekly\",\n          \"thresholdAlert\": \"More than 5 pricing-related switching mentions per month\",\n          \"datasources\": [\n            \"G2\",\n            \"TrustRadius\",\n            \"LinkedIn comments\"\n          ]\n        }\n      ],\n      \n      \"trendingTopics\": [\n        {\n          \"topic\": \"AI-assisted test creation\",\n          \"currentSentiment\": \"Neutral\",\n          \"trajectory\": \"Declining\",\n          \"actionIfDeclining\": \"If sentiment becomes negative, emphasize our AI capabilities in competitive positioning\"\n        },\n        {\n          \"topic\": \"Parallel execution costs\",\n          \"currentSentiment\": \"Negative\",\n          \"trajectory\": \"Declining\",\n          \"actionIfDeclining\": \"Create content comparing parallel execution pricing models - our unlimited model vs. their per-execution charges\"\n        }\n      ]\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1.2,
+      "position": [
+        1600,
+        176
+      ],
+      "id": "09eb5c89-d6b4-486c-820e-fd0921e3691d",
+      "name": "Information Extractor"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3-pro-preview",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        400
+      ],
+      "id": "58027550-b30d-445c-aebb-1c09282b8870",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "JpCnJlmNYk1qexN5",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Extract Competitor Info": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Competitor Sentiment": {
+      "main": [
+        [
+          {
+            "node": "Slack Alert - Opportunity",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Feed Array Setup": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Feeds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Feeds": {
+      "main": [
+        [
+          {
+            "node": "Extract Competitor Info",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Feeds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger - Monthly": {
+      "main": [
+        [
+          {
+            "node": "RSS Feed Array Setup",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Information Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information Extractor": {
+      "main": [
+        [
+          {
+            "node": "Update Competitor Sentiment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "executionTimeout": 3600,
+    "timezone": "UTC"
+  },
+  "versionId": "1dffdd09-f8e9-492f-b4ab-a7dd7c0a1694",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d422a02969380266aab4ff16dff35a7fec79c784c7ae5f5d0b2768f0ec8aa943"
+  },
+  "id": "TEyv2qC5T0lv71Fe",
+  "tags": []
+}

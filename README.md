@@ -115,6 +115,7 @@ ai-agent-factory/
 ## Documentation
 
 - **[Setup Guide](docs/setup-guide.md)** - Step-by-step installation and configuration
+- **[Elestio N8N MCP Setup](docs/elestio-n8n-mcp-setup.md)** - Complete guide for hosting N8N on Elestio with Claude MCP integration
 - **[Architecture](docs/architecture.md)** - System design and data flow
 - **[Prompt Library](docs/prompt-library.md)** - LLM prompts and model configurations
 - **[Setup Status](SETUP-STATUS.md)** - Current implementation progress

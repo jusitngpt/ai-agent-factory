@@ -47,7 +47,7 @@ Before beginning, ensure you have:
 1. Log into Airtable
 2. Click **"Add a base"**
 3. Choose **"Start from scratch"**
-4. Name it: `"DTN Agent Factory"`
+4. Name it: `"Katalon Agent Factory"`
 5. Click **Create base**
 
 ### 1.2 Create Table
@@ -81,12 +81,12 @@ Before beginning, ensure you have:
 
 1. Go to https://airtable.com/create/tokens
 2. Click **"Create new token"**
-3. Name it: `"n8n DTN AF Integration"`
+3. Name it: `"n8n KAF Integration"`
 4. Add scopes:
    - `data.records:read`
    - `data.records:write`
    - `schema.bases:read`
-5. Add access to your "DTN Agent Factory" base
+5. Add access to your "Katalon Agent Factory" base
 6. Click **"Create token"**
 7. **Copy token immediately** (shown only once)
 
@@ -97,7 +97,7 @@ Before beginning, ensure you have:
 ### 2.1 Create Channel
 
 1. In Slack, create a new channel: `#new-agent-requests`
-2. Set description: `"AI agent request analysis notifications from DTN AF"`
+2. Set description: `"AI agent request analysis notifications from KAF"`
 3. Make it public or private (your choice)
 
 ### 2.2 Create Slack App (if needed)
@@ -107,7 +107,7 @@ If you don't have a Slack app yet:
 1. Go to https://api.slack.com/apps
 2. Click **"Create New App"**
 3. Choose **"From scratch"**
-4. Name: `"DTN Agent Factory"`
+4. Name: `"Katalon Agent Factory"`
 5. Select your workspace
 6. Click **"Create App"**
 
@@ -124,7 +124,7 @@ If you don't have a Slack app yet:
 ### 2.4 Invite Bot to Channel
 
 1. In Slack, go to `#new-agent-requests`
-2. Type: `/invite @DTN Agent Factory`
+2. Type: `/invite @Katalon Agent Factory`
 3. Confirm the invitation
 
 ### 2.5 Note Channel ID
@@ -516,7 +516,7 @@ After successful deployment:
 1. Review TROUBLESHOOTING.md for common issues
 2. Monitor workflow performance
 3. Collect team feedback on ICE scores
-4. Consider implementing other DTN AF agents
+4. Consider implementing other KAF agents
 
 ---
 
@@ -524,7 +524,7 @@ After successful deployment:
 
 Your AI Agent Request Analysis workflow is now operational.
 
-**Questions?** See TROUBLESHOOTING.md or contact your DTN AF administrator.
+**Questions?** See TROUBLESHOOTING.md or contact your KAF administrator.
 
 ---
 

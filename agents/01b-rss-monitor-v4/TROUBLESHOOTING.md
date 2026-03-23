@@ -407,7 +407,7 @@ Channel not found: C09TXR2N0CC
 **Solution**:
 1. Verify bot is in channel:
    - In Slack, go to channel
-   - Type `/invite @DTN AF Agent-1B`
+   - Type `/invite @KAF Agent-1B`
 2. Double-check Channel ID:
    - Channel details → Copy Channel ID
    - Update "Slack Notification" node
@@ -428,7 +428,7 @@ not_in_channel or missing scope: chat:write
    - https://api.slack.com/apps → Your App → OAuth & Permissions
    - Verify scopes: `chat:write`, `channels:read`
 2. Reinstall app to workspace if scopes added
-3. Invite bot to channel: `/invite @DTN AF Agent-1B`
+3. Invite bot to channel: `/invite @KAF Agent-1B`
 
 ---
 
@@ -690,7 +690,7 @@ Gather this information:
 1. **n8n Community**: https://community.n8n.io/
 2. **Airtable Community**: https://community.airtable.com/
 3. **Google Gemini Support**: https://ai.google.dev/support
-4. **GitHub Issues**: (for DTN AF workflow-specific issues)
+4. **GitHub Issues**: (for KAF workflow-specific issues)
 
 ---
 
@@ -737,6 +737,6 @@ Gather this information:
 
 **Troubleshooting Guide Version**: 1.0
 **Last Updated**: November 19, 2025
-**Maintained By**: DTN AF Team
+**Maintained By**: KAF Team
 
 **Still stuck?** Create a detailed issue report with error messages and node execution data for further assistance.

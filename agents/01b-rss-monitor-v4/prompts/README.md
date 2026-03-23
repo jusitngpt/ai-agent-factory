@@ -22,7 +22,7 @@ This directory contains all AI prompts used in the Agent-1B V4 Multi-Feed RSS Mo
 
 **Version:** 4.0
 **Last Updated:** 2025-11-19
-**Maintained By:** DTN Marketing Automation Team
+**Maintained By:** Katalon Marketing Automation Team
 
 ## Customization Notes
 

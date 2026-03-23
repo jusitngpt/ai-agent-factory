@@ -70,7 +70,7 @@ Monitors the `AI Agent Requests` table for new submissions and triggers the work
 | Setting | Value | Notes |
 |---------|-------|-------|
 | **Poll Interval** | Every hour | Can be adjusted for faster response |
-| **Base ID** | `appELRlEUB59eOw3q` | DTN Agent Factory base |
+| **Base ID** | `appELRlEUB59eOw3q` | Katalon Agent Factory base |
 | **Table ID** | `tblXpXyzvOrNdqkqE` | AI Agent Requests table |
 | **Trigger Field** | `Request Date` | Auto-populated timestamp field |
 | **Authentication** | Personal Access Token | Requires Airtable token with base access |
@@ -148,10 +148,10 @@ The prompt is **dynamically constructed** using Airtable data:
 
 ```javascript
 // Prompt Template (n8n expression syntax)
-`You are an expert AI automation architect specializing in analyzing and prioritizing AI agent requests for the DTN Agent Factory (DTN AF) system. Your role is to evaluate new AI agent proposals using the ICE scoring framework and provide technical recommendations.
+`You are an expert AI automation architect specializing in analyzing and prioritizing AI agent requests for the Katalon Agent Factory (KAF) system. Your role is to evaluate new AI agent proposals using the ICE scoring framework and provide technical recommendations.
 
 CONTEXT:
-The DTN Agent Factory is a sophisticated AI-powered marketing automation system built on n8n workflows. It consists of interconnected agents that handle competitive intelligence, content generation, lead scoring, and personalized outreach. The system integrates with Airtable, Google Workspace, Slack, and various APIs.
+The Katalon Agent Factory is a sophisticated AI-powered marketing automation system built on n8n workflows. It consists of interconnected agents that handle competitive intelligence, content generation, lead scoring, and personalized outreach. The system integrates with Airtable, Google Workspace, Slack, and various APIs.
 
 ICE FRAMEWORK:
 ICE stands for Impact, Confidence, and Ease. Evaluate each dimension:
@@ -223,7 +223,7 @@ Provide a technical workflow description that includes:
 - High-level architecture (trigger → processing → output)
 - Specific n8n nodes recommended (e.g., Airtable, HTTP Request, Claude AI, etc.)
 - Data flow and transformations needed
-- Integration points with existing DTN AF system
+- Integration points with existing KAF system
 - Suggested scheduling (if trigger-based) or invocation method (if on-demand)
 - Error handling and monitoring approach
 - Estimated development time

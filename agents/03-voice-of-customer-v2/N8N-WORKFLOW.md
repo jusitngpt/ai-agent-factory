@@ -167,7 +167,7 @@ Conduct comprehensive voice-of-customer research for {{$json.competitor_name}} a
    - Industry verticals represented
 
 5. COMPETITIVE MENTIONS
-   - How often is DTN mentioned in their reviews?
+   - How often is Katalon mentioned in their reviews?
    - What comparisons are made?
    - Switching patterns (from/to this tool)
 
@@ -206,7 +206,7 @@ Analyze the following voice-of-customer research and generate strategic intellig
 **Generate JSON output with this structure:**
 
 {
-  "executive_summary": "2-3 paragraphs: overall sentiment, key findings, strategic implications for DTN",
+  "executive_summary": "2-3 paragraphs: overall sentiment, key findings, strategic implications for Katalon",
 
   "sentiment_overview": {
     "overall_rating": "X.X/5 (aggregate across platforms)",
@@ -227,7 +227,7 @@ Analyze the following voice-of-customer research and generate strategic intellig
       "mention_percentage": "Estimate % of positive reviews",
       "representative_quotes": ["quote 1", "quote 2", "quote 3"],
       "features_praised": ["feature 1", "feature 2"],
-      "strategic_implication": "What this means for DTN (1-2 sentences)"
+      "strategic_implication": "What this means for Katalon (1-2 sentences)"
     }
   ],
 
@@ -238,26 +238,26 @@ Analyze the following voice-of-customer research and generate strategic intellig
       "mention_percentage": "Estimate % of negative reviews",
       "representative_quotes": ["quote 1", "quote 2", "quote 3"],
       "features_criticized": ["feature 1", "feature 2"],
-      "strategic_implication": "Opportunity for DTN (1-2 sentences)"
+      "strategic_implication": "Opportunity for Katalon (1-2 sentences)"
     }
   ],
 
   "competitive_insights": {
-    "strengths_vs_dtn": [
+    "strengths_vs_katalon": [
       {
         "strength": "Specific competitive advantage",
         "evidence": "Customer quotes or data supporting this",
         "threat_level": "High/Medium/Low"
       }
     ],
-    "weaknesses_vs_dtn": [
+    "weaknesses_vs_katalon": [
       {
         "weakness": "Specific competitive weakness",
         "evidence": "Customer quotes or data supporting this",
         "opportunity_level": "High/Medium/Low"
       }
     ],
-    "dtn_mentioned": "Yes/No - how often and in what context",
+    "katalon_mentioned": "Yes/No - how often and in what context",
     "switching_patterns": "Common paths to/from this competitor"
   },
 
@@ -326,8 +326,8 @@ Return ONLY valid JSON. No markdown formatting.
   "Executive Summary": "={{$json.executive_summary}}",
   "Positive Themes (JSON)": "={{JSON.stringify($json.positive_themes, null, 2)}}",
   "Negative Themes (JSON)": "={{JSON.stringify($json.negative_themes, null, 2)}}",
-  "Strengths vs DTN (JSON)": "={{JSON.stringify($json.competitive_insights.strengths_vs_dtn, null, 2)}}",
-  "Weaknesses vs DTN (JSON)": "={{JSON.stringify($json.competitive_insights.weaknesses_vs_dtn, null, 2)}}",
+  "Strengths vs Katalon (JSON)": "={{JSON.stringify($json.competitive_insights.strengths_vs_katalon, null, 2)}}",
+  "Weaknesses vs Katalon (JSON)": "={{JSON.stringify($json.competitive_insights.weaknesses_vs_katalon, null, 2)}}",
   "Product Priorities (JSON)": "={{JSON.stringify($json.strategic_recommendations.product_priorities, null, 2)}}",
   "Messaging Opportunities (JSON)": "={{JSON.stringify($json.strategic_recommendations.messaging_opportunities, null, 2)}}",
   "CS Tactics (JSON)": "={{JSON.stringify($json.strategic_recommendations.customer_success_tactics, null, 2)}}",
@@ -375,7 +375,7 @@ Return ONLY valid JSON. No markdown formatting.
 
 **High Priority Insights:**
 • {{$json.high_priority_insight_count}} strategic recommendations
-• {{$json.dtn_opportunities}} opportunities identified
+• {{$json.katalon_opportunities}} opportunities identified
 • {{$json.competitive_threats}} competitive threats noted
 
 **View Full Analysis:**

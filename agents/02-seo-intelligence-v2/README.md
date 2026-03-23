@@ -521,12 +521,12 @@ See the following documentation for implementation:
 
 ## Support
 
-**Project**: DTN Agent Factory (DTN AF)
+**Project**: Katalon Agent Factory (KAF)
 **Workflow**: Agent-2 V2 SEO Intelligence
 **Status**: ✅ Production Ready
 **Documentation**: Complete
 
-For questions or issues, see TROUBLESHOOTING.md or contact the DTN AF team.
+For questions or issues, see TROUBLESHOOTING.md or contact the KAF team.
 
 ---
 

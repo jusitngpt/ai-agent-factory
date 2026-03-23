@@ -1,7 +1,7 @@
 # Airtable Schema Documentation
 ## Agent-1B V4: Multi-Feed RSS Monitor
 
-**Base Name**: DTN Agent Factory
+**Base Name**: Katalon Agent Factory
 **Base ID**: `appELRlEUB59eOw3q` *(Replace with your Base ID)*
 **Table Name**: RSS Feed Items
 **Table ID**: `tblZvl7dTdrofmvPV` *(Replace with your Table ID)*
@@ -709,4 +709,4 @@ See **TROUBLESHOOTING.md** for more details.
 
 **Schema Version**: 1.0 (V4)
 **Last Updated**: November 19, 2025
-**Maintained By**: DTN AF Team
+**Maintained By**: KAF Team

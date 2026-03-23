@@ -11,7 +11,7 @@
 ## Prompt Template
 
 ```
-You are a competitive intelligence analyst for DTN. Analyze this RSS feed item from a competitor and extract strategic insights.
+You are a competitive intelligence analyst for Katalon. Analyze this RSS feed item from a competitor and extract strategic insights.
 
 **RSS Feed Item:**
 - Title: {{$json.title}}
@@ -32,9 +32,9 @@ Conduct deep research on this announcement/article and provide competitive intel
 - What is new or noteworthy about this?
 
 ### 2. Strategic Significance
-- Why is this significant for DTN?
+- Why is this significant for Katalon?
 - Does this represent a new capability, market move, or positioning shift?
-- How does this compare to DTN's offerings?
+- How does this compare to Katalon's offerings?
 - Is this a threat, opportunity, or neutral development?
 
 ### 3. Competitive Implications
@@ -61,11 +61,11 @@ Conduct deep research on this announcement/article and provide competitive intel
 - What ROI or value metrics are claimed?
 - Are there customer quotes or testimonials?
 
-### 7. DTN Competitive Response
-- Should DTN respond to this? How urgently?
-- What are DTN's comparable capabilities?
-- Where does DTN have advantages?
-- Where might DTN have gaps?
+### 7. Katalon Competitive Response
+- Should Katalon respond to this? How urgently?
+- What are Katalon's comparable capabilities?
+- Where does Katalon have advantages?
+- Where might Katalon have gaps?
 
 ## Output Format:
 
@@ -76,7 +76,7 @@ Be analytical and strategic, not just descriptive.
 Focus on actionable intelligence for product and marketing teams.
 
 **Research Depth:** This is primary competitive intelligence. Be thorough.
-**Perspective:** You work for DTN, so frame insights from DTN's competitive position.
+**Perspective:** You work for Katalon, so frame insights from Katalon's competitive position.
 **Tone:** Professional, analytical, objective (not promotional)
 ```
 
@@ -99,7 +99,7 @@ Focus on actionable intelligence for product and marketing teams.
 ### Adjust Research Depth
 ```
 For lighter analysis (faster, cheaper):
-"Focus only on: Content Analysis, Strategic Significance, DTN Response"
+"Focus only on: Content Analysis, Strategic Significance, Katalon Response"
 Remove: Market Context, Technical Details sections
 
 For deeper analysis:
@@ -134,14 +134,14 @@ This is Selenium's announcement of Grid 5.0, their distributed test execution pl
 New/Noteworthy: First major Grid update in 2 years. Introduces Kubernetes-native architecture, replacing Docker Compose approach.
 
 **2. Strategic Significance:**
-HIGH SIGNIFICANCE for DTN. Selenium is directly competing in the cloud/distributed testing space where DTN TestCloud operates. This closes a capability gap Selenium had vs. commercial solutions.
+HIGH SIGNIFICANCE for Katalon. Selenium is directly competing in the cloud/distributed testing space where Katalon TestCloud operates. This closes a capability gap Selenium had vs. commercial solutions.
 
-Comparison to DTN: DTN TestCloud offers similar distributed execution but with built-in test orchestration and reporting. Selenium Grid 5.0 requires separate tools for these functions.
+Comparison to Katalon: Katalon TestCloud offers similar distributed execution but with built-in test orchestration and reporting. Selenium Grid 5.0 requires separate tools for these functions.
 
-Threat Level: MEDIUM - Improves Selenium's competitive position but doesn't match DTN's integrated platform approach.
+Threat Level: MEDIUM - Improves Selenium's competitive position but doesn't match Katalon's integrated platform approach.
 
 **3. Competitive Implications:**
-This reveals Selenium's strategy to remain competitive with commercial platforms (DTN, BrowserStack, Sauce Labs) by improving their free/open-source distributed testing capabilities. They're targeting enterprise teams who previously hit scalability limits with Grid 4.x.
+This reveals Selenium's strategy to remain competitive with commercial platforms (Katalon, BrowserStack, Sauce Labs) by improving their free/open-source distributed testing capabilities. They're targeting enterprise teams who previously hit scalability limits with Grid 4.x.
 
 Customer Pain Point: Enterprises struggling with slow test execution and complex Grid 4.x setup.
 
@@ -165,7 +165,7 @@ Customer Demand: Survey data shows 60% of enterprise QA teams prioritize "faster
 
 Technology Stack: Kubernetes, gRPC for node communication, Redis for session management
 
-Differentiators: Open source (vs. DTN's proprietary TestCloud), Kubernetes scalability
+Differentiators: Open source (vs. Katalon's proprietary TestCloud), Kubernetes scalability
 
 **6. Customer Impact:**
 Primary Beneficiaries: Enterprise teams with Kubernetes infrastructure, 1,000+ automated tests, complex test suites requiring parallel execution.
@@ -179,22 +179,22 @@ ROI Claims: Blog post cites "10x faster execution, 70% reduction in CI/CD time"
 
 Customer Quotes: Beta tester from Acme Corp: "We went from 2-hour test runs to 12 minutes with Grid 5.0"
 
-**7. DTN Competitive Response:**
+**7. Katalon Competitive Response:**
 
 URGENCY: MEDIUM (respond within Q1 2025)
 
 Recommended Actions:
-1. PRODUCT: Audit TestCloud's Kubernetes performance vs. Selenium Grid 5.0. Ensure DTN matches or exceeds claimed 10x improvement.
-2. MARKETING: Create "Selenium Grid 5.0 vs. DTN TestCloud" comparison content highlighting DTN's integrated reporting, test management, and no-infra-required approach.
+1. PRODUCT: Audit TestCloud's Kubernetes performance vs. Selenium Grid 5.0. Ensure Katalon matches or exceeds claimed 10x improvement.
+2. MARKETING: Create "Selenium Grid 5.0 vs. Katalon TestCloud" comparison content highlighting Katalon's integrated reporting, test management, and no-infra-required approach.
 3. SALES: Arm team with battle card: "Selenium Grid 5.0 is great if you have Kubernetes expertise and want to manage infrastructure. TestCloud is better if you want testing capabilities out-of-the-box."
 
-DTN Advantages:
+Katalon Advantages:
 - No Kubernetes knowledge required (managed service)
 - Integrated test analytics and reporting (Grid 5.0 requires separate tools)
 - Visual test recorder (Grid is code-only)
 - Built-in test management (Grid has none)
 
-DTN Gaps to Address:
+Katalon Gaps to Address:
 - If Selenium Grid 5.0's 10x claim is accurate, ensure TestCloud performance is competitive
 - Consider offering Kubernetes-native deployment option for enterprise customers who prefer self-hosted
 
@@ -218,4 +218,4 @@ DTN Gaps to Address:
 ---
 
 **Last Updated:** 2025-11-19
-**Maintained By:** DTN Marketing Automation Team
+**Maintained By:** Katalon Marketing Automation Team

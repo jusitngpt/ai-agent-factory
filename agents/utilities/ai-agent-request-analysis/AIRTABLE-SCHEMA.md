@@ -1,6 +1,6 @@
 # AI Agent Request Analysis - Airtable Schema
 
-**Base**: DTN Agent Factory
+**Base**: Katalon Agent Factory
 **Base ID**: `appELRlEUB59eOw3q`
 **Last Updated**: November 19, 2025
 
@@ -447,7 +447,7 @@ Optional fields:
 
 ### Initial Setup
 
-1. Create Airtable base: "DTN Agent Factory"
+1. Create Airtable base: "Katalon Agent Factory"
 2. Create table: "AI Agent Requests"
 3. Add all fields as specified above
 4. Configure views

@@ -320,7 +320,7 @@
 - Recent changes made
 
 **Support Channels:**
-- DTN team: Internal support
+- Katalon team: Internal support
 - n8n Community: https://community.n8n.io/
 - GitHub: Open issue in ai-agent-factory repo
 

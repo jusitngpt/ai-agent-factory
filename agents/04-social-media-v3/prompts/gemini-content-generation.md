@@ -62,7 +62,7 @@ Each tweet should work standalone BUT also flow as a thread. Use thread hooks: "
 
   "linkedin_post": "Full LinkedIn post text with formatting (300-500 words)",
 
-  "image_prompt": "Description for AI image generation. Style: Professional tech illustration, modern SaaS aesthetic, DTN brand colors (purple #6200EA, blue #0091EA). Be specific about visual concept but concise (1-2 sentences)."
+  "image_prompt": "Description for AI image generation. Style: Professional tech illustration, modern SaaS aesthetic, Katalon brand colors (purple #6200EA, blue #0091EA). Be specific about visual concept but concise (1-2 sentences)."
 }
 
 ---

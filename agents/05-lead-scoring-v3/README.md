@@ -206,7 +206,7 @@
   ],
 
   "talking_points": [
-    "Selenium expertise: Position DTN as 'Selenium, enterprise-ready'",
+    "Selenium expertise: Position Katalon as 'Selenium, enterprise-ready'",
     "Cost savings: Show ROI vs BrowserStack pricing",
     "Migration support: Highlight seamless Selenium script import",
     "Scale: Emphasize handling 250-person team growth"

@@ -320,7 +320,7 @@ competitors: [
       ]
     },
     "options": {
-      "systemMessage": "=You are a competitive intelligence analyst for the DTN Agent Factory system. Your role is to analyze competitor blog posts and RSS feed items to extract strategic insights, competitive intelligence, and actionable recommendations. [Full system prompt - see detailed version in README.md]"
+      "systemMessage": "=You are a competitive intelligence analyst for the Katalon Agent Factory system. Your role is to analyze competitor blog posts and RSS feed items to extract strategic insights, competitive intelligence, and actionable recommendations. [Full system prompt - see detailed version in README.md]"
     }
   }
 }
@@ -334,7 +334,7 @@ competitors: [
 
 **System Prompt** (Abbreviated - Full version ~2,500 words):
 ```
-You are a competitive intelligence analyst for the DTN Agent Factory system.
+You are a competitive intelligence analyst for the Katalon Agent Factory system.
 
 Analysis Task:
 - Analyze competitor blog posts and extract comprehensive competitive intelligence
@@ -515,7 +515,7 @@ Required Output Format: JSON only (no markdown, no explanations)
       "__rl": true,
       "value": "appELRlEUB59eOw3q",
       "mode": "list",
-      "cachedResultName": "DTN Agent Factory",
+      "cachedResultName": "Katalon Agent Factory",
       "cachedResultUrl": "https://airtable.com/appELRlEUB59eOw3q"
     },
     "table": {
@@ -836,4 +836,4 @@ This reduces execution time for faster testing.
 
 **Documentation**: Complete
 **Last Updated**: November 19, 2025
-**Maintained By**: DTN AF Team
+**Maintained By**: KAF Team

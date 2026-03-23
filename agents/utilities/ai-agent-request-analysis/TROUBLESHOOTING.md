@@ -345,7 +345,7 @@ Your channel ID: ??? (need to verify)
 
 **Solution**:
 1. Go to `#new-agent-requests` channel in Slack
-2. Type: `/invite @DTN Agent Factory`
+2. Type: `/invite @Katalon Agent Factory`
    (Replace with your bot name)
 3. Confirm invitation
 4. Retry workflow execution
@@ -684,7 +684,7 @@ Collect this information:
 
 ### Where to Get Help
 
-1. **DTN AF Documentation**:
+1. **KAF Documentation**:
    - README.md - Overview
    - N8N-WORKFLOW.md - Technical details
    - IMPLEMENTATION-GUIDE.md - Setup help

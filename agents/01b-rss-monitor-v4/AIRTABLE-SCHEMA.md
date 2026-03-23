@@ -709,4 +709,4 @@ See **TROUBLESHOOTING.md** for more details.
 
 **Schema Version**: 1.0 (V4)
 **Last Updated**: November 19, 2025
-**Maintained By**: KAF Team
+**Maintained By**: Development Team

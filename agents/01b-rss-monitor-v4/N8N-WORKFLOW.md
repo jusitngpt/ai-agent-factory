@@ -836,4 +836,4 @@ This reduces execution time for faster testing.
 
 **Documentation**: Complete
 **Last Updated**: November 19, 2025
-**Maintained By**: KAF Team
+**Maintained By**: Development Team

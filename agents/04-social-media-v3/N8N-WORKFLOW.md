@@ -88,7 +88,7 @@ Return as JSON:
     "prompt": "={{$json.image_prompt}}",
     "style": "professional tech illustration",
     "dimensions": "1200x675",
-    "brand_colors": ["#6200EA", "#0091EA"]  // Katalon purple + blue
+    "brand_colors": ["#6200EA", "#0091EA"]  // Your brand colors
   }
 }
 ```

@@ -226,7 +226,7 @@
 - Recent workflow changes
 
 **Support:**
-- Katalon team: Internal support
+- Development team: Internal support
 - n8n Community: https://community.n8n.io/
 - GitHub: ai-agent-factory issues
 

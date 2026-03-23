@@ -521,12 +521,12 @@ See the following documentation for implementation:
 
 ## Support
 
-**Project**: Katalon Agent Factory (KAF)
+**Project**: AI Agent Factory
 **Workflow**: Agent-2 V2 SEO Intelligence
 **Status**: ✅ Production Ready
 **Documentation**: Complete
 
-For questions or issues, see TROUBLESHOOTING.md or contact the KAF team.
+For questions or issues, see TROUBLESHOOTING.md or contact the development team.
 
 ---
 

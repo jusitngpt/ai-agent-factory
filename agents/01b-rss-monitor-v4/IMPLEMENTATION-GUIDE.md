@@ -115,7 +115,7 @@ Test each feed URL:
 
 1. Log in to Airtable (https://airtable.com)
 2. Click **"Add a base"** → **"Start from scratch"**
-3. Name it: **"Katalon Agent Factory"** (or your preferred name)
+3. Name it: **"AI Agent Factory"** (or your preferred name)
 4. Click into the new base
 
 ### 2.2 Create RSS Feed Items Table
@@ -195,7 +195,7 @@ Table ID: tbl_________________
 
 1. Go to https://api.slack.com/apps
 2. Click **"Create New App"** → **"From scratch"**
-3. App Name: "KAF Agent-1B"
+3. App Name: "AI Agent Bot"
 4. Select your workspace
 5. Click **"Create App"**
 
@@ -218,7 +218,7 @@ Slack Bot Token: xoxb-_______________
 ### 3.4 Invite Bot to Channel
 
 1. In Slack, go to `#competitor-monitoring` channel
-2. Type: `/invite @KAF Agent-1B`
+2. Type: `/invite @AI-Agent-Bot`
 3. Bot should join the channel
 
 ### 3.5 Get Channel ID
@@ -263,7 +263,7 @@ Channel ID: C_______________
 1. **Get Personal Access Token**:
    - In Airtable, click profile icon → **"Developer hub"**
    - Click **"Create new token"**
-   - Name: "n8n KAF Integration"
+   - Name: "n8n AI Agent Integration"
    - Add scopes: `data.records:read`, `data.records:write`, `schema.bases:read`
    - Add access to your base
    - Click **"Create token"**
@@ -274,7 +274,7 @@ Channel ID: C_______________
    - Search "Airtable Token"
    - Select **"Airtable Personal Access Token"**
    - Paste token
-   - Name: "Airtable KAF Access"
+   - Name: "Airtable AI Agent Access"
    - Click **"Save"**
 
 ### 4.3 Slack Credential
@@ -284,7 +284,7 @@ Channel ID: C_______________
    - Search "Slack OAuth2"
    - Select **"Slack OAuth2 API"**
    - Paste Bot User OAuth Token (from Step 3.3)
-   - Name: "Slack KAF Bot"
+   - Name: "Slack AI Agent Bot"
    - Click **"Save"**
 
 ---
@@ -342,7 +342,7 @@ return [
 **Node: "Create RSS Feed Item in Airtable" (Node 11)**
 
 1. Click the node
-2. Update **"Credential to connect with"**: Select "Airtable KAF Access"
+2. Update **"Credential to connect with"**: Select "Airtable AI Agent Access"
 3. Update **"Base"**:
    - Click dropdown
    - If you see your base, select it
@@ -359,7 +359,7 @@ return [
 **Node: "Slack Notification" (Node 12)**
 
 1. Click the node
-2. Update **"Credential to connect with"**: Select "Slack KAF Bot"
+2. Update **"Credential to connect with"**: Select "Slack AI Agent Bot"
 3. Update **"Channel"**:
    - Click dropdown to list channels
    - Select your `#competitor-monitoring` channel
@@ -640,6 +640,6 @@ Use this checklist to track your implementation progress:
 **Implementation Guide Version**: 1.0
 **Last Updated**: November 19, 2025
 **Estimated Setup Time**: 45-60 minutes
-**Maintained By**: KAF Team
+**Maintained By**: Development Team
 
 🎉 **Congratulations!** You've successfully deployed Agent-1B V4 Multi-Feed RSS Monitor. Your automated competitive intelligence system is now running 24/7.

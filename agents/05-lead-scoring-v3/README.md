@@ -206,10 +206,10 @@
   ],
 
   "talking_points": [
-    "Selenium expertise: Position Katalon as 'Selenium, enterprise-ready'",
-    "Cost savings: Show ROI vs BrowserStack pricing",
-    "Migration support: Highlight seamless Selenium script import",
-    "Scale: Emphasize handling 250-person team growth"
+    "Technical expertise: Position solution as 'enterprise-ready'",
+    "Cost savings: Show ROI vs competitor pricing",
+    "Migration support: Highlight seamless integration",
+    "Scale: Emphasize handling team growth"
   ],
 
   "red_flags": [

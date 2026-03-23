@@ -1,6 +1,6 @@
 # AI Agent Request Analysis
 
-**Utility Workflow for Katalon Agent Factory**
+**Utility Workflow for AI Agent Factory**
 
 **Status**: ✅ Active in Production
 **Workflow ID**: `jVRyNBedQHJAxHg6`
@@ -11,7 +11,7 @@
 
 ## Overview
 
-The AI Agent Request Analysis workflow is a critical utility that serves as the intake and triage system for new AI agent proposals within the Katalon Agent Factory ecosystem. It automatically evaluates incoming requests using the ICE (Impact, Confidence, Ease) scoring framework and provides technical recommendations for implementation.
+The AI Agent Request Analysis workflow is a critical utility that serves as the intake and triage system for new AI agent proposals within the AI Agent Factory ecosystem. It automatically evaluates incoming requests using the ICE (Impact, Confidence, Ease) scoring framework and provides technical recommendations for implementation.
 
 ### Purpose
 
@@ -199,7 +199,7 @@ Assuming 20 requests/month:
 ### 1. Intelligent Scoring
 Uses Claude Sonnet 4's advanced reasoning to evaluate:
 - Business impact across multiple dimensions
-- Technical feasibility based on existing KAF architecture
+- Technical feasibility based on existing architecture
 - Resource requirements for implementation
 
 ### 2. Structured Extraction
@@ -294,12 +294,12 @@ See the following documentation for implementation:
 
 ## Support
 
-**Project**: Katalon Agent Factory (KAF)
+**Project**: AI Agent Factory
 **Workflow**: AI Agent Request Analysis
 **Status**: ✅ Production Active
 **Documentation**: Complete
 
-For questions or issues, see TROUBLESHOOTING.md or contact the KAF team.
+For questions or issues, see TROUBLESHOOTING.md or contact the development team.
 
 ---
 

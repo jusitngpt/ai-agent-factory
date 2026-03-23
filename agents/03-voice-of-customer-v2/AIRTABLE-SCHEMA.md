@@ -16,8 +16,8 @@
 | 8 | Executive Summary | Long text | Strategic overview |
 | 9 | Positive Themes (JSON) | Long text | Array of positive themes |
 | 10 | Negative Themes (JSON) | Long text | Array of negative themes |
-| 11 | Strengths vs Katalon (JSON) | Long text | Competitive advantages |
-| 12 | Weaknesses vs Katalon (JSON) | Long text | Competitive vulnerabilities |
+| 11 | Strengths vs Your Product (JSON) | Long text | Competitive advantages |
+| 12 | Weaknesses vs Your Product (JSON) | Long text | Competitive vulnerabilities |
 | 13 | Product Priorities (JSON) | Long text | Recommended product actions |
 | 14 | Messaging Opportunities (JSON) | Long text | Marketing angles |
 | 15 | CS Tactics (JSON) | Long text | Customer success actions |
@@ -107,7 +107,7 @@
 
 ---
 
-### 11. Strengths vs Katalon (JSON)
+### 11. Strengths vs Your Product (JSON)
 
 **Example:**
 ```json
@@ -127,7 +127,7 @@
 
 ---
 
-### 12. Weaknesses vs Katalon (JSON)
+### 12. Weaknesses vs Your Product (JSON)
 
 **Example:**
 ```json
@@ -218,7 +218,7 @@
 - **Purpose:** Track competitor sentiment over time
 
 ### 4. Product Opportunities
-- **Filter:** Weaknesses vs Katalon (JSON) is not empty
+- **Filter:** Weaknesses vs Your Product (JSON) is not empty
 - **Sort:** Strategic Priority Score (desc)
 - **Fields:** Competitor Name, Weaknesses, Product Priorities, Priority Score
 
@@ -235,7 +235,7 @@
 - **Action:** Generate executive summary report, email to leadership
 
 ### 3. Trend Alert
-- **Trigger:** Rating Trend = "Declining" for Katalon (if tracking Katalon)
+- **Trigger:** Rating Trend = "Declining" for your product (if tracking your product)
 - **Action:** Immediate alert to customer success team
 
 ---

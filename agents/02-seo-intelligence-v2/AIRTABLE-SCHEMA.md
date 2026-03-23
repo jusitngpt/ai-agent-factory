@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Base Name:** Katalon Agent Factory (KAF)
+**Base Name:** AI Agent Factory
 **Table Name:** Competitor SEO Analysis
 **Primary Use:** Store weekly SEO competitive intelligence and strategic recommendations
 **Records per Month:** ~20 (5 competitors × 4 weeks)
@@ -32,7 +32,7 @@
 | 14 | Content Tactics (JSON) | Long text | Recommended content actions | ✅ |
 | 15 | SEO Tactics (JSON) | Long text | Recommended SEO actions | ✅ |
 | 16 | Competitive Threats (JSON) | Long text | Threats from competitor | ✅ |
-| 17 | Katalon Advantages (JSON) | Long text | Exploitable weaknesses | ✅ |
+| 17 | Your Product Advantages (JSON) | Long text | Exploitable weaknesses | ✅ |
 | 18 | Strategic Priority Score | Number | Importance rating (1-100) | ✅ |
 | 19 | Analysis Confidence | Single select | Data quality indicator | ✅ |
 | 20 | Data Freshness | Single line text | Recency of research | ✅ |
@@ -107,7 +107,7 @@ Puppeteer
 
 **Content Requirements:**
 - 2-3 paragraphs (200-400 words)
-- Strategic implications for Katalon
+- Strategic implications for your product
 - Key competitive insights
 - Recommended actions summary
 
@@ -124,7 +124,7 @@ Key competitive threat: Selenium's strong community engagement drives 60% of
 their backlinks, creating sustainable SEO advantage. They own featured snippets
 for 12+ high-value keywords in the testing automation space.
 
-Primary opportunity for Katalon: Target content gaps around modern testing
+Primary opportunity for your product: Target content gaps around modern testing
 approaches (AI, visual, API) where Selenium has minimal presence. Their content
 depth scores average 6/10, indicating opportunity for more comprehensive guides.
 ```
@@ -174,7 +174,7 @@ Distribution:
 ```
 
 **Usage Notes:**
-- Informs Katalon content strategy
+- Informs your product content strategy
 - Identifies successful patterns to emulate
 - Reveals gaps in competitor approach
 
@@ -195,7 +195,7 @@ Webinars, Case studies, Best practices guides, Release notes, Community spotligh
 **Usage Notes:**
 - Helps identify format diversity
 - Shows investment in different content types
-- Informs Katalon content mix decisions
+- Informs your product content mix decisions
 
 ---
 
@@ -216,7 +216,7 @@ Docker containerization for Selenium, Mobile web testing, Test data management
 **Usage Notes:**
 - Identifies proven traffic drivers
 - Shows market demand for topics
-- Reveals content opportunities for Katalon
+- Reveals content opportunities for your product
 - Should be monitored for trend changes
 
 ---
@@ -243,7 +243,7 @@ Docker containerization for Selenium, Mobile web testing, Test data management
 
 **Usage Notes:**
 - Helps identify quality benchmarks
-- Shows where Katalon can differentiate
+- Shows where your product can differentiate
 - Tracks quality improvements over time
 
 ---
@@ -311,7 +311,7 @@ selenium parallel testing, selenium test automation, selenium ide
 - Opportunity keywords (positions 11-20)
 
 **Usage Notes:**
-- Informs Katalon keyword targeting
+- Informs your product keyword targeting
 - Identifies direct competitive keywords
 - Shows semantic clustering patterns
 - Updated weekly for trend tracking
@@ -476,7 +476,7 @@ Rich Results:
 [
   {
     "tactic": "Create 'Ultimate Guide to Selenium Alternatives' comparison content",
-    "rationale": "Selenium ranks well for comparison queries but content is outdated. Opportunity to capture consideration-stage traffic by positioning Katalon as modern alternative with side-by-side feature comparisons.",
+    "rationale": "Selenium ranks well for comparison queries but content is outdated. Opportunity to capture consideration-stage traffic by positioning your product as modern alternative with side-by-side feature comparisons.",
     "priority": "High",
     "expected_outcome": "Capture 15-20% of 'selenium vs' search traffic (est. 12K monthly searches), improve brand awareness in evaluation stage"
   },
@@ -514,13 +514,13 @@ Rich Results:
 [
   {
     "tactic": "Implement HowTo schema markup on all tutorial pages",
-    "rationale": "Selenium uses HowTo schema on 80% of tutorial content, earning enhanced SERP display and higher CTR. Katalon has <10% schema coverage. Low-effort, high-impact opportunity.",
+    "rationale": "Selenium uses HowTo schema on 80% of tutorial content, earning enhanced SERP display and higher CTR. your product has <10% schema coverage. Low-effort, high-impact opportunity.",
     "priority": "High",
     "expected_outcome": "Improve SERP CTR by 15-25% on tutorial pages, potential featured snippet wins for step-by-step queries"
   },
   {
     "tactic": "Build internal linking hub for 'Test Automation' topic cluster",
-    "rationale": "Selenium's internal linking strategy creates strong topical authority (avg 15 internal links per page). Katalon averages only 3-5 internal links, missing topical SEO opportunity.",
+    "rationale": "Selenium's internal linking strategy creates strong topical authority (avg 15 internal links per page). your product averages only 3-5 internal links, missing topical SEO opportunity.",
     "priority": "High",
     "expected_outcome": "Improve crawl depth, boost rankings for cluster keywords by 10-20 positions, increase page authority distribution"
   }
@@ -553,17 +553,17 @@ Rich Results:
   {
     "threat": "Selenium's community-driven content strategy generates 200+ backlinks per month organically",
     "severity": "High",
-    "recommended_response": "Launch Katalon Community Contributors program - incentivize guest posts, community tutorials, and user-generated content. Target 50+ community backlinks per month within 6 months."
+    "recommended_response": "Launch your product Community Contributors program - incentivize guest posts, community tutorials, and user-generated content. Target 50+ community backlinks per month within 6 months."
   },
   {
-    "threat": "Selenium owns featured snippets for 12 high-value keywords Katalon targets",
+    "threat": "Selenium owns featured snippets for 12 high-value keywords your product targets",
     "severity": "High",
     "recommended_response": "Audit featured snippet content structure. Rewrite target pages using Q&A format, concise definitions, and structured lists. Implement FAQ schema markup."
   },
   {
-    "threat": "Selenium's documentation ranks higher than Katalon's for product comparison queries",
+    "threat": "Selenium's documentation ranks higher than your product's for product comparison queries",
     "severity": "Medium",
-    "recommended_response": "Create comprehensive comparison hub - 'Katalon vs Selenium', 'Why Teams Switch from Selenium', 'Migration Guide: Selenium to Katalon'. Target bottom-funnel search intent."
+    "recommended_response": "Create comprehensive comparison hub - 'your product vs Selenium', 'Why Teams Switch from Selenium', 'Migration Guide: Selenium to your product'. Target bottom-funnel search intent."
   }
 ]
 ```
@@ -571,17 +571,17 @@ Rich Results:
 **Required Fields per Threat:**
 - `threat` (specific competitive advantage they have)
 - `severity` ("High", "Medium", "Low")
-- `recommended_response` (how Katalon should respond)
+- `recommended_response` (how your product should respond)
 
 **Usage Notes:**
 - 3-5 threats per analysis
-- Focus on threats that impact Katalon directly
+- Focus on threats that impact your product directly
 - Include actionable responses
 - Track mitigation progress
 
 ---
 
-### 17. Katalon Advantages (JSON)
+### 17. Your Product Advantages (JSON)
 **Type:** Long text (JSON formatted)
 **Max Length:** 6,000 characters
 **Format:** JSON array of advantage objects
@@ -592,17 +592,17 @@ Rich Results:
 [
   {
     "advantage": "Selenium has zero content on low-code/no-code testing approaches",
-    "opportunity": "Create comprehensive content series on 'Low-Code Test Automation' - position Katalon Studio as accessible alternative to code-heavy Selenium. Target non-developer QA roles.",
+    "opportunity": "Create comprehensive content series on 'Low-Code Test Automation' - position your product Studio as accessible alternative to code-heavy Selenium. Target non-developer QA roles.",
     "quick_win_potential": "Yes"
   },
   {
     "advantage": "Selenium's API testing content is outdated (last updated 2022)",
-    "opportunity": "Publish definitive guide to API testing automation with modern tools (Postman, REST Assured, Katalon). Own 'selenium api testing' queries with fresher, better content.",
+    "opportunity": "Publish definitive guide to API testing automation with modern tools (Postman, REST Assured, your product). Own 'selenium api testing' queries with fresher, better content.",
     "quick_win_potential": "Yes"
   },
   {
     "advantage": "Selenium lacks case studies showing enterprise ROI and adoption metrics",
-    "opportunity": "Leverage Katalon's enterprise customer base - publish 5-7 case studies with specific ROI data, team productivity metrics, and cost savings. Build trust for enterprise buyers.",
+    "opportunity": "Leverage your product's enterprise customer base - publish 5-7 case studies with specific ROI data, team productivity metrics, and cost savings. Build trust for enterprise buyers.",
     "quick_win_potential": "No"
   }
 ]
@@ -610,7 +610,7 @@ Rich Results:
 
 **Required Fields per Advantage:**
 - `advantage` (specific weakness or gap in competitor strategy)
-- `opportunity` (how Katalon can exploit this)
+- `opportunity` (how your product can exploit this)
 - `quick_win_potential` ("Yes" or "No")
 
 **Usage Notes:**
@@ -885,7 +885,7 @@ KZfgyKJr4biAMcrO_xyz789ghi012
 **Example Content:**
 ```
 Content Tasks:
-☐ Write "Selenium vs Katalon" comparison guide (Due: Dec 1)
+☐ Write "Selenium vs your product" comparison guide (Due: Dec 1)
 ☐ Create video tutorial series on AI testing (Due: Dec 15)
 ☐ Publish case study: Enterprise Selenium migration (Due: Dec 20)
 
@@ -1098,7 +1098,7 @@ Consider expanding video strategy beyond original plan.
 - Added "Content Gaps (JSON)" (was plain text)
 - Added "Strategic Priority Score" (new metric)
 - Split "Recommendations" into "Content Tactics" and "SEO Tactics"
-- Added "Katalon Advantages" field
+- Added "Your Product Advantages" field
 
 **Migration Steps:**
 1. Export V1 data to CSV
@@ -1142,7 +1142,7 @@ Consider expanding video strategy beyond original plan.
 
 **Update Frequency:** Review schema quarterly
 
-**Support Contact:** For issues with schema or data quality, contact KAF team
+**Support Contact:** For issues with schema or data quality, contact the development team
 
 ---
 

@@ -384,7 +384,7 @@ Return comprehensive research findings with specific examples and citations.
 
 **Prompt Template:**
 ```
-You are Katalon's SEO Strategy Director. Analyze the following SEO competitive intelligence and provide strategic insights and recommendations.
+You are DTN's SEO Strategy Director. Analyze the following SEO competitive intelligence and provide strategic insights and recommendations.
 
 **Competitor:** {{$json.competitor_name}}
 **Analysis Date:** {{$json.analysis_timestamp}}
@@ -393,7 +393,7 @@ You are Katalon's SEO Strategy Director. Analyze the following SEO competitive i
 {{$node["SEO Research via Perplexity"].json.research_findings}}
 
 **Your Task:**
-Synthesize this research into actionable SEO intelligence for Katalon's content and marketing teams.
+Synthesize this research into actionable SEO intelligence for DTN's content and marketing teams.
 
 **Required Output Structure (JSON format):**
 
@@ -451,14 +451,14 @@ Synthesize this research into actionable SEO intelligence for Katalon's content 
     {
       "threat": "Specific competitive threat or area where they're winning",
       "severity": "High/Medium/Low",
-      "recommended_response": "How Katalon should respond"
+      "recommended_response": "How DTN should respond"
     }
   ],
 
-  "competitive_advantages_katalon_can_exploit": [
+  "competitive_advantages_dtn_can_exploit": [
     {
       "advantage": "Area where competitor is weak or absent",
-      "opportunity": "How Katalon can capitalize",
+      "opportunity": "How DTN can capitalize",
       "quick_win_potential": "Yes/No"
     }
   ],
@@ -592,7 +592,7 @@ Return ONLY the JSON object. No additional text or markdown.
           }
         }
       },
-      "competitive_advantages_katalon_can_exploit": {
+      "competitive_advantages_dtn_can_exploit": {
         "type": "array",
         "items": {
           "type": "object",
@@ -670,7 +670,7 @@ Clean, validated JSON matching exact schema requirements for Airtable storage.
   "Content Tactics (JSON)": "={{JSON.stringify($json.strategic_recommendations.top_5_content_tactics, null, 2)}}",
   "SEO Tactics (JSON)": "={{JSON.stringify($json.strategic_recommendations.top_5_seo_tactics, null, 2)}}",
   "Competitive Threats (JSON)": "={{JSON.stringify($json.competitive_threats, null, 2)}}",
-  "Katalon Advantages (JSON)": "={{JSON.stringify($json.competitive_advantages_katalon_can_exploit, null, 2)}}",
+  "DTN Advantages (JSON)": "={{JSON.stringify($json.competitive_advantages_dtn_can_exploit, null, 2)}}",
   "Strategic Priority Score": "={{$json.key_metrics.strategic_priority_score}}",
   "Analysis Confidence": "={{$json.key_metrics.analysis_confidence}}",
   "Data Freshness": "={{$json.key_metrics.data_freshness}}",
@@ -1102,8 +1102,8 @@ For issues or questions about this workflow:
 1. Check [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 2. Review n8n execution logs
 3. Verify all credentials are active
-4. Contact: Katalon Marketing Automation Team
+4. Contact: DTN Marketing Automation Team
 
 **Last Updated:** 2025-11-19
-**Maintained By:** Katalon Marketing Automation Team
+**Maintained By:** DTN Marketing Automation Team
 **Workflow Status:** ✅ Production Ready

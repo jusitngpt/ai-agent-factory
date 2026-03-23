@@ -453,12 +453,12 @@ See the following documentation for implementation:
 
 ## Support
 
-**Project**: Katalon Agent Factory (KAF)
+**Project**: DTN Agent Factory (DTN AF)
 **Workflow**: Agent-1B V4 Multi-Feed RSS Monitor
 **Status**: ✅ Production Ready
 **Documentation**: Complete
 
-For questions or issues, see TROUBLESHOOTING.md or contact the KAF team.
+For questions or issues, see TROUBLESHOOTING.md or contact the DTN AF team.
 
 ---
 

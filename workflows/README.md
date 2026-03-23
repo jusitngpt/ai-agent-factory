@@ -1,6 +1,6 @@
-# KAF Workflows
+# DTN AF Workflows
 
-This folder contains the actual n8n workflow JSON exports for all Katalon Agent Factory agents. These files can be imported directly into n8n for deployment.
+This folder contains the actual n8n workflow JSON exports for all DTN Agent Factory agents. These files can be imported directly into n8n for deployment.
 
 ## How to Import
 

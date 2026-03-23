@@ -45,7 +45,7 @@
 2. **Get API key:** Dashboard → API Keys
 3. **Configure defaults:**
    - Style: "Professional tech illustration"
-   - Brand colors: Katalon purple + blue
+   - Brand colors: DTN purple + blue
    - Dimensions: 1200x675 (Twitter optimized)
 
 **Alternative:** Use DALL-E or Midjourney API if preferred
@@ -99,7 +99,7 @@
 1. **Create test blog post in Airtable:**
    ```
    Title: Test Post - Please Ignore
-   URL: https://katalon.com/blog/test
+   URL: https://dtn.com/blog/test
    Summary: This is a test post for Social Media Agent V3
    Status: Published
    ```

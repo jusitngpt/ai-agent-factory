@@ -194,8 +194,8 @@ Return ONLY valid JSON. No markdown, no code blocks.
   ],
 
   "talking_points": [
-    "Selenium expertise: Position Katalon as 'Selenium, but enterprise-ready' with built-in features",
-    "Team scale: Emphasize Katalon's team collaboration, test management for 50+ QA team",
+    "Selenium expertise: Position DTN as 'Selenium, but enterprise-ready' with built-in features",
+    "Team scale: Emphasize DTN's team collaboration, test management for 50+ QA team",
     "Maintenance burden: Highlight self-healing tests, smart waits to reduce maintenance vs Selenium",
     "ROI: Show cost savings - licensing + reduced maintenance time for 50-person team"
   ],

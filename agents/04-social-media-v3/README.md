@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Social Media Agent V3** automatically distributes Katalon's blog content across Twitter and LinkedIn with AI-generated social media posts and custom images. Triggered when new blog posts are published (via Airtable or RSS), this workflow creates platform-optimized content, generates eye-catching visuals, and posts simultaneously to multiple social channels.
+**Social Media Agent V3** automatically distributes DTN's blog content across Twitter and LinkedIn with AI-generated social media posts and custom images. Triggered when new blog posts are published (via Airtable or RSS), this workflow creates platform-optimized content, generates eye-catching visuals, and posts simultaneously to multiple social channels.
 
 **Workflow ID:** EFR7nvwO9690x54x
 **Status:** ✅ Active
@@ -122,7 +122,7 @@ Read the full analysis: [Blog Link]
 modern SaaS aesthetic, purple and blue gradient, isometric view"
 
 "Abstract geometric pattern representing CI/CD pipeline, flowing data streams,
-Katalon brand colors (purple, blue), clean minimalist design"
+DTN brand colors (purple, blue), clean minimalist design"
 ```
 
 ### 3. Multi-Platform Posting
@@ -156,7 +156,7 @@ Katalon brand colors (purple, blue), clean minimalist design"
 
 ### Input: Blog Post
 **Title:** "5 Test Automation Patterns That Cut Maintenance by 60%"
-**URL:** https://katalon.com/blog/test-automation-patterns
+**URL:** https://dtn.com/blog/test-automation-patterns
 **Summary:** Guide on self-healing tests, smart waits, parallel execution...
 
 ### Output: Twitter Thread
@@ -200,7 +200,7 @@ Payback: Teams ship 3x faster.
 ---
 
 Full breakdown + implementation guide:
-https://katalon.com/blog/test-automation-patterns
+https://dtn.com/blog/test-automation-patterns
 
 #TestAutomation #QA #DevOps #CI/CD
 ```
@@ -237,7 +237,7 @@ Each pattern includes:
 ✓ ROI calculations
 ✓ Common pitfalls to avoid
 
-Read the full guide: https://katalon.com/blog/test-automation-patterns
+Read the full guide: https://dtn.com/blog/test-automation-patterns
 
 [AI-Generated Image]
 

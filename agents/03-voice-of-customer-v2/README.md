@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Agent-3 Voice of Customer V2** is an intelligent automation workflow that monitors and analyzes customer sentiment from major software review platforms (G2, Capterra, TrustRadius) for Katalon and its top competitors. Running monthly, this agent provides comprehensive voice-of-customer intelligence, identifying competitive strengths, weaknesses, customer pain points, and opportunities for product and messaging improvements.
+**Agent-3 Voice of Customer V2** is an intelligent automation workflow that monitors and analyzes customer sentiment from major software review platforms (G2, Capterra, TrustRadius) for your product and its top competitors. Running monthly, this agent provides comprehensive voice-of-customer intelligence, identifying competitive strengths, weaknesses, customer pain points, and opportunities for product and messaging improvements.
 
 **Workflow ID:** TEyv2qC5T0lv71Fe
 **Status:** ✅ Active
@@ -85,7 +85,7 @@ Analyzes 5 key competitors:
 **Competitive Insights:**
 - What customers love about competitors
 - What customers complain about
-- Feature gaps Katalon can exploit
+- Feature gaps you can exploit
 - Messaging angles that resonate
 
 ### 3. Theme Extraction
@@ -128,7 +128,7 @@ Historical data enables month-over-month trend analysis:
 **How Agent-3 Helps:**
 1. Reviews Agent-3 output for competitor weaknesses
 2. Identifies top 3 "missing features" themes
-3. Cross-references with Katalon user requests
+3. Cross-references with your product user requests
 4. Prioritizes features that address competitive gaps
 
 **Outcome:** Data-driven roadmap aligned with market needs
@@ -137,11 +137,11 @@ Historical data enables month-over-month trend analysis:
 
 ### Competitive Marketing
 
-**Scenario:** Marketing creating "Katalon vs. Competitor" comparison pages
+**Scenario:** Marketing creating "your product vs. Competitor" comparison pages
 
 **How Agent-3 Helps:**
 1. Analyzes competitor negative themes (pain points)
-2. Identifies Katalon advantages (positive themes competitors lack)
+2. Identifies your product advantages (positive themes competitors lack)
 3. Extracts customer quotes for social proof
 4. Informs messaging angles
 
@@ -258,7 +258,7 @@ For each competitor:
 8. Representative Positive Quotes (3-5)
 9. Representative Negative Quotes (3-5)
 10. Feature Mentions (most praised/criticized)
-11. Comparison to Katalon (if mentioned)
+11. Comparison to your product (if mentioned)
 12. Reviewer Personas (company size, role)
 ```
 
@@ -296,7 +296,7 @@ For each competitor:
       "theme": "Limited advanced customization",
       "mention_frequency": "Medium (25% of reviews)",
       "representative_quotes": ["quote 1", "quote 2"],
-      "strategic_implication": "Opportunity for Katalon to position as more flexible"
+      "strategic_implication": "Opportunity for your product to position as more flexible"
     }
   ],
 
@@ -317,7 +317,7 @@ For each competitor:
     ],
     "messaging_opportunities": [
       {
-        "angle": "Position Katalon as 'easy to learn, powerful to scale'",
+        "angle": "Position your product as 'easy to learn, powerful to scale'",
         "rationale": "Competitors either easy OR powerful, not both",
         "target_audience": "Teams with mixed technical skills",
         "expected_outcome": "Differentiate in crowded market"
@@ -410,7 +410,7 @@ strong top-of-funnel advantage. However, 40% of reviews comparing Selenium to
 commercial alternatives highlight frustration with maintenance overhead and lack of
 built-in features (reporting, parallel execution, visual testing).
 
-Primary opportunity for Katalon: Position as "Selenium, but enterprise-ready" -
+Primary opportunity for your product: Position as "Selenium, but enterprise-ready" -
 highlighting ease of use for mixed-skill teams, built-in advanced features, and
 reduced maintenance burden. Target messaging at teams currently struggling with
 Selenium's learning curve (SMB QA teams, organizations transitioning from manual
@@ -423,7 +423,7 @@ testing).
 ```
 1. "Extensive browser and platform support" (60% of positive reviews)
    - Quotes: "Works with every browser we need", "Best cross-browser testing tool"
-   - Implication: Table stakes - Katalon must match browser coverage
+   - Implication: Table stakes - your product must match browser coverage
 
 2. "Large community and resources" (55% of positive reviews)
    - Quotes: "Tons of tutorials and Stack Overflow answers", "Easy to find help"
@@ -431,22 +431,22 @@ testing).
 
 3. "Free and open source" (50% of positive reviews)
    - Quotes: "No licensing costs", "Can customize anything"
-   - Implication: Emphasize Katalon's free tier, highlight value of paid features
+   - Implication: Emphasize your product's free tier, highlight value of paid features
 ```
 
 **Negative Themes (Selenium):**
 ```
 1. "Steep learning curve, requires coding" (65% of negative reviews)
    - Quotes: "Too hard for our manual testers", "Weeks to become productive"
-   - Implication: ✅ Katalon advantage - low-code Studio, recorder
+   - Implication: ✅ your product advantage - low-code Studio, recorder
 
 2. "No built-in reporting or test management" (40% of negative reviews)
    - Quotes: "Have to build everything yourself", "Reporting is a pain"
-   - Implication: ✅ Katalon advantage - Analytics, TestOps integration
+   - Implication: ✅ your product advantage - Analytics, TestOps integration
 
 3. "Maintenance overhead and flaky tests" (35% of negative reviews)
    - Quotes: "Tests break with every UI change", "Spend more time fixing than writing"
-   - Implication: ✅ Katalon opportunity - self-healing, smart wait strategies
+   - Implication: ✅ your product opportunity - self-healing, smart wait strategies
 ```
 
 ---
@@ -507,7 +507,7 @@ testing).
 
 🎯 Key Opportunity:
 "Easy for beginners, powerful for experts" positioning - competitors struggle
-to balance ease-of-use with advanced capabilities. Katalon can own this space.
+to balance ease-of-use with advanced capabilities. your product can own this space.
 
 📋 View Full Analysis: [Airtable Link]
 
@@ -574,7 +574,7 @@ Next Analysis: December 1, 2025 at 10 AM
 
 - **Product Roadmap Influence:** 20%+ of roadmap items informed by VOC
 - **Competitive Win Rate:** Track correlation with VOC-informed messaging
-- **Customer Satisfaction:** Monitor Katalon's review sentiment vs. competitors
+- **Customer Satisfaction:** Monitor your product's review sentiment vs. competitors
 - **Time Savings:** 15-20 hours/month vs. manual research
 
 ---
@@ -680,7 +680,7 @@ Common issues and solutions:
 
 ## Support
 
-**Primary Contact:** Katalon Marketing Automation Team
+**Primary Contact:** your product Marketing Automation Team
 
 **Issues:** Open GitHub issue in ai-agent-factory repository
 
@@ -691,4 +691,4 @@ Common issues and solutions:
 **Last Updated:** 2025-11-19
 **Version:** 2.0
 **Status:** ✅ Production Ready
-**Maintained By:** Katalon Marketing Automation Team
+**Maintained By:** your product Marketing Automation Team

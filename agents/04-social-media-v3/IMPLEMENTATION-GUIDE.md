@@ -45,7 +45,7 @@
 2. **Get API key:** Dashboard → API Keys
 3. **Configure defaults:**
    - Style: "Professional tech illustration"
-   - Brand colors: Katalon purple + blue
+   - Brand colors: Your brand colors
    - Dimensions: 1200x675 (Twitter optimized)
 
 **Alternative:** Use DALL-E or Midjourney API if preferred

@@ -115,7 +115,7 @@ Test each feed URL:
 
 1. Log in to Airtable (https://airtable.com)
 2. Click **"Add a base"** → **"Start from scratch"**
-3. Name it: **"Katalon Agent Factory"** (or your preferred name)
+3. Name it: **"AI Agent Factory"** (or your preferred name)
 4. Click into the new base
 
 ### 2.2 Create RSS Feed Items Table

@@ -194,10 +194,10 @@ Return ONLY valid JSON. No markdown, no code blocks.
   ],
 
   "talking_points": [
-    "Selenium expertise: Position Katalon as 'Selenium, but enterprise-ready' with built-in features",
-    "Team scale: Emphasize Katalon's team collaboration, test management for 50+ QA team",
-    "Maintenance burden: Highlight self-healing tests, smart waits to reduce maintenance vs Selenium",
-    "ROI: Show cost savings - licensing + reduced maintenance time for 50-person team"
+    "Technical expertise: Position solution as 'enterprise-ready' with built-in features",
+    "Team scale: Emphasize team collaboration and test management capabilities",
+    "Maintenance burden: Highlight self-healing tests and smart automation features",
+    "ROI: Show cost savings - licensing + reduced maintenance time"
   ],
 
   "red_flags": []

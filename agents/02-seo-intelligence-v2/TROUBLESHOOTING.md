@@ -773,7 +773,7 @@ Priority order:
    ```
    Token settings:
    → "Access" section
-   → Ensure "Katalon Agent Factory" base is selected
+   → Ensure "AI Agent Factory" base is selected
    → If not, add base to token permissions
    ```
 
@@ -1585,7 +1585,7 @@ Next: Monday 9 AM ET
 4. **Contact Support:**
    - n8n Community: https://community.n8n.io/
    - This repository: Open GitHub issue
-   - Katalon team: Internal support
+   - Development team: Internal support
 
 ---
 
@@ -1619,7 +1619,7 @@ Gather this information:
 ### Support Channels
 
 **Internal:**
-- Katalon Marketing Automation Team
+- Development Team
 - AI Agent Factory GitHub: [Open Issue](https://github.com/your-org/ai-agent-factory/issues)
 
 **External:**

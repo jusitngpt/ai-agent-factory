@@ -239,7 +239,7 @@ Goes beyond ICE to include:
 
     "marketing_actions": [
       {
-        "action": "Create 'Selenium Grid 5.0 vs. Katalon TestCloud' comparison guide",
+        "action": "Create 'Selenium Grid 5.0 vs. TestCloud' comparison guide",
         "rationale": "Grid 5.0 launch will drive search interest in alternatives. Capture this intent with SEO-optimized comparison content",
         "timeline": "This Quarter",
         "effort": "Medium (weeks) - Content creation + design",
@@ -247,7 +247,7 @@ Goes beyond ICE to include:
       },
       {
         "action": "Develop 'Migrating from Selenium Grid to TestCloud' migration guide",
-        "rationale": "Some Grid 4.x users may evaluate Grid 5.0 vs. commercial alternatives. Make Katalon an easy choice",
+        "rationale": "Some Grid 4.x users may evaluate Grid 5.0 vs. commercial alternatives. Provide an easy migration path",
         "timeline": "This Quarter",
         "effort": "Medium (weeks) - Technical content + case study",
         "impact": "Lower barrier to TestCloud adoption for Selenium Grid users"
@@ -261,7 +261,7 @@ Goes beyond ICE to include:
         "talking_points": [
           "Grid 5.0 is great if you have Kubernetes expertise and want to manage infrastructure. TestCloud is better if you want testing capabilities out-of-the-box with zero infrastructure management.",
           "Grid 5.0 is free but requires separate tools for reporting, test management, scheduling. TestCloud includes all of this integrated, which saves on total cost of ownership.",
-          "Grid 5.0 performance depends on your Kubernetes setup. TestCloud performance is guaranteed and optimized by Katalon."
+          "Grid 5.0 performance depends on your Kubernetes setup. TestCloud performance is guaranteed and optimized."
         ],
         "objection_handling": "When prospect says 'Grid 5.0 is free, why pay for TestCloud?', respond: 'Grid 5.0 is free in licensing cost, but consider the infrastructure cost (Kubernetes cluster), engineering time (setup, maintenance), and separate tools needed (reporting, test management). Most teams find TestCloud's all-in-one approach reduces total cost by 40-60% vs. self-hosted Grid.'"
       }
@@ -277,13 +277,13 @@ Goes beyond ICE to include:
       "Enterprise teams prioritize 'faster CI/CD feedback' (Grid 5.0 addresses this pain point)",
       "Growing demand for scalable testing solutions that don't require infrastructure expertise"
     ],
-    "competitive_landscape_shift": "Selenium is closing the gap with commercial platforms on distributed testing performance, forcing commercial vendors (Katalon, BrowserStack, Sauce Labs) to compete more on integrated features, ease-of-use, and managed infrastructure rather than raw performance alone."
+    "competitive_landscape_shift": "Selenium is closing the gap with commercial platforms on distributed testing performance, forcing commercial vendors to compete more on integrated features, ease-of-use, and managed infrastructure rather than raw performance alone."
   },
 
   "content_categorization": {
     "primary_category": "Product Innovation",
     "topics": ["distributed testing", "Kubernetes", "test automation", "Selenium Grid", "parallel execution", "CI/CD"],
-    "katalon_relevance": "Direct Competitor"
+    "our_relevance": "Direct Competitor"
   },
 
   "key_metrics": {
@@ -299,9 +299,9 @@ Goes beyond ICE to include:
       "Playwright recently announced distributed testing support (Oct 2025)",
       "TestCafe exploring cloud executor (beta, Nov 2025)"
     ],
-    "katalon_recent_actions": [
+    "our_recent_actions": [
       "TestCloud expanded to APAC regions (Q3 2025)",
-      "Katalon 9.0 added AI test healing (Q2 2025)"
+      "Platform 9.0 added AI test healing (Q2 2025)"
     ],
     "external_factors": [
       "Kubernetes adoption in enterprise QA teams growing 40% YoY",

@@ -3,7 +3,7 @@
 ## Quick Start (60-75 minutes)
 
 ### Step 1: Airtable Setup (20 min)
-1. Create base: "Katalon Agent Factory"
+1. Create base: "AI Agent Factory"
 2. Create table: "Competitor VOC Analysis"
 3. Add 27 fields from schema (see AIRTABLE-SCHEMA.md)
 4. Create Personal Access Token with write permissions

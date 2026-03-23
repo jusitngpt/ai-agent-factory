@@ -143,7 +143,7 @@ Use this template to organize your research:
 
 1. Log into [Airtable](https://airtable.com/)
 2. Click "Add a base" → "Start from scratch"
-3. Name your base: **"Katalon Agent Factory"** (or your company name)
+3. Name your base: **"AI Agent Factory"** (or your company name)
 4. Rename the default table to: **"Competitor SEO Analysis"**
 
 ### 2.2 Create Schema Fields
@@ -168,7 +168,7 @@ Add these fields to your table (in order):
 | 14 | Content Tactics (JSON) | Long text | - |
 | 15 | SEO Tactics (JSON) | Long text | - |
 | 16 | Competitive Threats (JSON) | Long text | - |
-| 17 | Katalon Advantages (JSON) | Long text | - |
+| 17 | Your Product Advantages (JSON) | Long text | - |
 | 18 | Strategic Priority Score | Number | Integer, 0-100 |
 | 19 | Analysis Confidence | Single select | Options: High, Medium, Low |
 | 20 | Data Freshness | Single line text | - |
@@ -242,7 +242,7 @@ For **Status:**
    - ✅ `data.records:read`
    - ✅ `data.records:write`
    - ✅ `schema.bases:read`
-6. Access: Select your "Katalon Agent Factory" base
+6. Access: Select your "AI Agent Factory" base
 7. Click "Create token" → **Copy and save the token securely**
 
 ### 2.6 Get Base and Table IDs
@@ -367,7 +367,7 @@ SLACK_CHANNEL_NAME=#seo-intelligence
 1. In n8n, go to **Credentials** → **New Credential**
 2. Search for "Airtable API"
 3. Configure:
-   - **Name:** Airtable - KAF
+   - **Name:** Airtable
    - **Authentication:** Access Token
    - **Access Token:** [Your Airtable Personal Access Token from Step 2.5]
 4. Click "Test" to verify connection
@@ -424,7 +424,7 @@ Checklist:
 
 **Node 8: Save to Airtable**
 1. Click node to open settings
-2. Under "Credentials", select your **Airtable - KAF** credential
+2. Under "Credentials", select your **Airtable** credential
 3. Update **Base ID**: Enter your Airtable Base ID from Step 2.6
 4. Update **Table Name**: Enter "Competitor SEO Analysis"
 5. Verify field mappings match your schema
@@ -1009,7 +1009,7 @@ After successful deployment:
 - [Slack API Documentation](https://api.slack.com/)
 
 **Support:**
-- Katalon Marketing Automation Team
+- Development Team
 - n8n Community Forum: https://community.n8n.io/
 - Airtable Community: https://community.airtable.com/
 

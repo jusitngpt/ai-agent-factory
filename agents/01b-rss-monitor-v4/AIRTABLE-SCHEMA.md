@@ -1,7 +1,7 @@
 # Airtable Schema Documentation
 ## Agent-1B V4: Multi-Feed RSS Monitor
 
-**Base Name**: Katalon Agent Factory
+**Base Name**: AI Agent Factory
 **Base ID**: `appELRlEUB59eOw3q` *(Replace with your Base ID)*
 **Table Name**: RSS Feed Items
 **Table ID**: `tblZvl7dTdrofmvPV` *(Replace with your Table ID)*
